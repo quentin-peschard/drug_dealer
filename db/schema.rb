@@ -10,10 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_23_144142) do
+ActiveRecord::Schema.define(version: 2021_08_23_150017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drugs", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.boolean "prescribed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ordered_drugs", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "drug_id", null: false
+    t.integer "quantity"
+    t.float "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["drug_id"], name: "index_ordered_drugs_on_drug_id"
+    t.index ["order_id"], name: "index_ordered_drugs_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.float "total"
+    t.string "status"
+    t.boolean "accepted"
+    t.bigint "user_id", null: false
+    t.bigint "pharmacy_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pharmacy_id"], name: "index_orders_on_pharmacy_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "pharmacies", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_pharmacies_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +64,17 @@ ActiveRecord::Schema.define(version: 2021_08_23_144142) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "ssn"
+    t.string "insurance"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ordered_drugs", "drugs"
+  add_foreign_key "ordered_drugs", "orders"
+  add_foreign_key "orders", "pharmacies"
+  add_foreign_key "orders", "users"
+  add_foreign_key "pharmacies", "users"
 end
