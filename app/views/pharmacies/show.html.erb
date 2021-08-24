@@ -1,2 +1,9 @@
-<h1>Pharmacies#show</h1>
-<p>Find me in app/views/pharmacies/show.html.erb</p>
+<h1><%= @pharmacy.name%></h1>
+<h2><%= @pharmacy.address%></h2>
+<p><%= @pharmacy.description%></p>
+<div id="map"
+                  class="my-4"
+                  style="width: 600px; height: 400px; border-radius: 7px;"
+                  data-markers="<%= @markers.to_json %>"
+                  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
