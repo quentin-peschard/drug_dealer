@@ -1,24 +1,26 @@
 .pharmacy-card {
   background: none;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin: 5px 0;
+  height: 60px;
+  border-radius: 7px;
 }
 
 .pharmacy-card h2 {
-  font-size: 8px;
+  font-size: 14px;
   font-weight: bold;
   margin: 0;
 }
 
 .pharmacy-card p {
-  font-size: 6px;
+  font-size: 9px;
   opacity: .7;
   margin: 0;
 }
 
 .pharmacy-card .pharmacy-card-infos {
-  padding: 16px;
+  padding: 10px 16px;
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
   position: relative;
 }
