@@ -17,18 +17,17 @@ class OrderedDrugsController < ApplicationController
 
   def update
     @ordered_drug = OrderedDrug.find(params[:id])
-    @ordered_drug.update(ordered_drugs_params)
+    @ordered_drug.update(ordered_drug_params)
     redirect_to orders_path
     authorize @ordered_drug
   end
 
   def create
-    @ordered_drug = OrderedDrug.new(ordered_drug_params)
-    @drug = Drug.find(params[:drug_id])
-    @ordered_drug.drug = @drug
+    @ordered_drug = OrderedDrug.new(drug: Drug.find(params[:drug_id]), order: Order.find(params[:order_id]))
     authorize @ordered_drug
-    if @ordered_drug.save
-      redirect_to ordered_drugs_path
+
+    if @ordered_drug.save!
+      redirect_to drugs_path(params: { pharmacy_id: params[:pharmacy_id] })
     else
       render '???'
     end
@@ -44,6 +43,6 @@ class OrderedDrugsController < ApplicationController
   private
 
   def ordered_drug_params
-    params.require(:ordered_drug).permit(:drug_id, :quantity, :price, :order_id)
+    params.require(:ordered_drug).permit(:quantity, :price)
   end
 end
