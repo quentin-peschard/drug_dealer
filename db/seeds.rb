@@ -18,7 +18,8 @@ data.each do |drug|
                prescribed: false)
 end
 customer = User.create({ first_name: 'Mike', last_name: 'Jones', email: 'mike@hello.com', password: '123456' })
-pharmacy = Pharmacy.create({ name: 'Pharm', address: '123 hello', description: 'very nice', user_id: 1 })
+pharmacy = Pharmacy.create({ name: 'Pharmacie du Wagon', address: '14 villa Gaudelet, 75011 Paris', description: 'very nice', user_id: 1 })
+pharmacy2 = Pharmacy.create({ name: 'Pharmacie de Menilmontant', address: '14 rue Dagorno, 75012 Paris', description: 'very nice', user_id: 1 })
 drug = Drug.create({ name: 'drug', prescribed: false })
 order = Order.create({ user_id: 1, total: 45.3, pharmacy_id: 1, status: 'pending', accepted: false })
 ordered_drug = OrderedDrug.create({ order_id: 1, price: 10, quantity: 2, drug_id: 1 })
