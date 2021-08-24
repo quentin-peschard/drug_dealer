@@ -1,6 +1,7 @@
 class OrderedDrugsController < ApplicationController
   def index
-    @ordered_drugs = OrderedDrug.all
+    @order = Order.find(params[:order_id])
+    @ordered_drugs = policy_scope(OrderedDrug).where(order_id: @order.id)
   end
 
   def new
