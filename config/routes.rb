@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'drugs/index'
   devise_for :users
   root to: 'pages#home'
   resources :pharmacies, only: [:index, :show]
