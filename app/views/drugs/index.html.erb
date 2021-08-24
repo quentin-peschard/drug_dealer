@@ -1,5 +1,6 @@
 <div class="container">
   <div class="col-sm-12">
+
     <div>
       <h2>Medecines</h2>
         <% @drugs.each do |drug| %>
@@ -8,6 +9,7 @@
             <div class="card-product-infos">
               <h2><%=drug.name%></h2>
               <p><%=drug.description%></p>
+              <%= link_to "add", order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post %>
             </div>
           </div>
         <% end %>
