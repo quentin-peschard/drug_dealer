@@ -13,14 +13,13 @@ ordered_drug = OrderedDrug.create({order_id: 1, price: 10, quantity: 2, drug_id:
 
 Drug.create!([
                     {
-                        name: "Smecta", 
-                        description: "to vomit in complete serenity", 
-                        prescripted: false
-                    }, 
+                        name: "Smecta",
+                        description: "to vomit in complete serenity",
+                        prescribed: false
+                    },
                     {
                         name: "lurofene",
                         description: "to be like a titan all night long !",
-                        prescripted: true
+                        prescribed: true
                     }
 ])
-
