@@ -17,6 +17,7 @@ require 'json'
 data = JSON.parse(File.read(Rails.root.join('db/drugs.json')))
 
 data.each do |drug|
+<<<<<<< HEAD
   Drug.create!(name: drug['drug_name'],
                description: drug['description'],
                prescripted: false)
@@ -26,3 +27,29 @@ pharmacy = Pharmacy.create({ name: 'Pharm', address: '123 hello', description: '
 drug = Drug.create({ name: 'drug', prescripted: false })
 order = Order.create({ user_id: 1, total: 45.3, pharmacy_id: 1, status: 'pending', accepted: false })
 ordered_drug = OrderedDrug.create({ order_id: 1, price: 10, quantity: 2, drug_id: 1 })
+=======
+    Drug.create!(
+        name: drug["drug_name"],
+        description: drug["description"],
+        prescribed: false
+    )
+end
+customer = User.create({first_name: 'Mike', last_name: 'Jones', email: 'mike@hello.com', password: '123456' })
+pharmacy = Pharmacy.create({name: 'Pharm', address: '123 hello', description: 'very nice', user_id: 1 })
+drug = Drug.create({name: 'drug', prescribed: false})
+order = Order.create({user_id: 1, total: 45.3, pharmacy_id: 1, status: 'pending', accepted: false})
+ordered_drug = OrderedDrug.create({order_id: 1, price: 10, quantity: 2, drug_id: 1})
+
+Drug.create!([
+                    {
+                        name: "Smecta",
+                        description: "to vomit in complete serenity",
+                        prescribed: false
+                    },
+                    {
+                        name: "lurofene",
+                        description: "to be like a titan all night long !",
+                        prescribed: true
+                    }
+])
+>>>>>>> c1459aeb1cb03bb861a378afd905cecc88deeaf1
