@@ -1,6 +1,6 @@
 class DrugsController < ApplicationController
   def index
     @drugs = Drug.all
-    authorize @drugs
+    @drugs = policy_scope(Drug)
   end
 end
