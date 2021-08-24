@@ -1,5 +1,11 @@
 <div class="container">
   <% @ordered_drugs.each do |order| %>
-    <%= order.price %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%=order.drug.name%></h2>
+        <p><%=order.drug.description%></p>
+      </div>
+    </div>
   <% end %>
 </div>
