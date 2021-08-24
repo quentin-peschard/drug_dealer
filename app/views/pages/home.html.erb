@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="view">
+  <div class="banner">
+    <div id="banner-search-bar">
+      <%= form_tag pharmacies_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "address-input",
+          placeholder: "Type your location here...."
+        %>
+        <%= submit_tag "Go", class: "search-button" %>
+      <% end %>
+    </div>
+  </div>
+</div>
