@@ -1,4 +1,18 @@
-<h1>@drugs.name</h1>
-<h3>@drugs.description</h3>
-<p>@drugs.prescripted</p>
+<div class="container">
+  <div class="col-sm-12">
 
+    <div>
+      <h2>Medecines</h2>
+        <% @drugs.each do |drug| %>
+          <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+              <h2><%=drug.name%></h2>
+              <p><%=drug.description%></p>
+            </div>
+          </div>
+        <% end %>
+    </div>
+
+  </div>
+</div>
