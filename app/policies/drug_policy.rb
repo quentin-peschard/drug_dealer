@@ -7,4 +7,5 @@ class DrugPolicy < ApplicationPolicy
     def index?
         true
     end
+  end
 end
