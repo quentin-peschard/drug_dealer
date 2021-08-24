@@ -2,7 +2,7 @@ class PharmaciesController < ApplicationController
   def index
     @pharmacies = policy_scope(Pharmacy).order(created_at: :desc)
     if params[:query].present?
-      @pharmacies = Pharmacy.near(params[:query], 4)
+      @pharmacies = Pharmacy.near(params[:query], 2)
     else
       @pharmacies = Pharmacy.all
     end
