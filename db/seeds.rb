@@ -25,7 +25,7 @@ end
 customer = User.create({ first_name: 'Mike', last_name: 'Jones', email: 'mike@hello.com', password: '123456' })
 pharmacist = User.create({ first_name: 'Michel', last_name: 'Drucker', email: 'michel@hello.com', password: '123456' })
 drug = Drug.create({ name: 'drug', prescribed: false })
-order = Order.create({ user: customer, total: 45.3, pharmacy: 1, status: 'pending', accepted: false })
+order = Order.create({ user: customer, total: 45.3, pharmacy: pharmacy, status: 'pending', accepted: false })
 ordered_drug = OrderedDrug.create({ order: order, price: 10, quantity: 2, drug: drug })
 
 Pharmacy.create!([{ name: 'Pharmacie Saint Honoré',
