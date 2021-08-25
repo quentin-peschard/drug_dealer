@@ -5,6 +5,7 @@
   height: fit-content;
   border-radius: 35px;
   padding: 5px 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
   width: 95vw;
 }
 
@@ -16,12 +17,14 @@
 .nav-wrapper {
   display: flex;
   justify-content: space-around;
-  background-color: rgba(244,244,244, 0.8);
+  background-color: rgba(255,255,255, 0.8);
   position: fixed;
   top: 0;
-  height: 80px;
+  height: 90px;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 0 0 35px 35px;
   width: 100%;
+  z-index: 2;
+  backdrop-filter: blur(8px);
 }
