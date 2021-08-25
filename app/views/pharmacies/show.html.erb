@@ -10,7 +10,7 @@
       <div class="card__overlay">
         <div class="card__header">
           <div class="card__header-text">
-            <h3 class="card__title"><%= @pharmacy.name%></h3>            
+            <h3 class="card__title"><%= @pharmacy.name%></h3>
             <span class="card__status"><%= @pharmacy.address%></span>
           </div>
         </div>
@@ -20,6 +20,6 @@
       <%= link_to "More drugs", drugs_path(pharmacy_id: @pharmacy.id), class:"button_prescription", style:"background-color:#00B8F5"%>
       <%= link_to "Go back to Pharmacies", pharmacies_path, class:"button_prescription"%>
       </div>
-    </a>      
+    </a>
   </li>
 </ul>
