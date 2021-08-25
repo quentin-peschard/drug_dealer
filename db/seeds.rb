@@ -29,8 +29,6 @@ pharmacy = Pharmacy.create({ name: 'Pharmacie du Wagon',
                              address: '14 villa Gaudelet, 75011 Paris',
                              user: pharmacist,
                              description: 'Surprisingly not a pharmacy, nice people are studying here though' })
-order = Order.create({ user: customer, total: 45.3, pharmacy: pharmacy, status: 'pending', accepted: false })
-ordered_drug = OrderedDrug.create({ order: order, price: 10, quantity: 2, drug: drug })
 
 Pharmacy.create!([{ name: 'Pharmacie Saint Honoré',
                     description: 'Une très belle Pharmacie et même la plus belle de Paris',
