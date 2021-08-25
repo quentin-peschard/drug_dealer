@@ -26,6 +26,10 @@
   z-index: 2;
 }
 
+.pharmacy-view a:hover {
+  text-decoration: none;
+}
+
 canvas.mapboxgl-canvas {
   height: -webkit-fill-available !important;
   width: -webkit-fill-available !important;

@@ -2,15 +2,14 @@
   background: #00B8F5;
   height: 100px;
   padding: 10px;
-  opacity: 1;
   border-radius: 20px 20px 0 0;
   margin-top: -18px;
   box-shadow: 0 0 10px rgba(0,36,61,0.2);
   transition-duration: 0.2s;
-  &:hover {
-    background: #0393c3e8;
-    opacity: 1;
-  }
+}
+
+.pharmacy-card:last-child {
+  margin-bottom: -20px;
 }
 
 .pharmacy-card h2 {
@@ -22,7 +21,6 @@
 
 .pharmacy-card p {
   font-size: 14px;
-  opacity: .7;
   color: white;
   height: 50px;
 }
@@ -45,4 +43,5 @@
   z-index: 3;
   padding-bottom: 80px;
   margin-top: -20px;
+  background: #00B8F5;
 }
