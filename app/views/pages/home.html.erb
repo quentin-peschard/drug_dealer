@@ -1,5 +1,21 @@
+<div class="view">
+  <div class="row align-items-center title">
+    <div class="col align-self-center">
+     <h1>Drug<br/>Dealer</h1>
+    </div>
+    <div class="col align-self-center">
+    <%= image_tag "logo.png", style: 'height:150px;width:150px' %>
+      <%# <img src="logo.png" alt="" width="150" height="150"> %>
+    </div>
+  </div>
+</div>
+<div class="view sub-title">
+  <h3>Focus on what matters while we do the rest</h2>
+</div>
+
 <div class="banner">
   <div id="banner-search-bar">
+    <p>Prescription Delivery</p>
     <%= form_tag pharmacies_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
