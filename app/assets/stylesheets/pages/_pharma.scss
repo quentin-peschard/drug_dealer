@@ -9,17 +9,17 @@
   
   body {
     font-family: 'Noto Sans JP', sans-serif;
-    background-color: #fef8f8;
+    // background-color: #fef8f8;
   }
   
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 4rem 5vw;
-    padding: 0;
-    list-style-type: none;
-  }
+  // .cards {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  //   gap: 2rem;
+  //   margin: 4rem 5vw;
+  //   padding: 0;
+  //   list-style-type: none;
+  // }
   
   .card {
     position: relative;
@@ -34,12 +34,12 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;
-    z-index: 1;      
+    right: 0;      
     border-radius: calc(var(--curve) * 1px);    
     background-color: var(--surface-color);      
     transform: translateY(100%);
     transition: .2s ease-in-out;
+    z-index: 3;
   }
   
   .card:hover .card__overlay {
@@ -86,7 +86,7 @@
   .card__title {
     font-size: 1em;
     margin: 0 0 .3em;
-    color: #6A515E;
+    color: #be87a4;
   }
   
   .card__tagline {
