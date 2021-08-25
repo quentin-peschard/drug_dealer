@@ -6,6 +6,9 @@
         <h2><%=order.drug.name%></h2>
         <p><%=order.drug.description%></p>
       </div>
+      <div class="edit-button">
+      <%= link_to "Edit", edit_order_ordered_drug_path, class: "btn btn-ghost" %>
+      </div>
     </div>
   <% end %>
 </div>
