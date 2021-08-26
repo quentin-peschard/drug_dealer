@@ -22,8 +22,8 @@ data.each do |drug|
                description: drug['description'],
                prescribed: false)
 end
-customer = User.create({ first_name: 'Mike', last_name: 'Jones', email: 'mike@hello.com', password: '123456' })
-pharmacist = User.create({ first_name: 'Michel', last_name: 'Drucker', email: 'michel@hello.com', password: '123456' })
+customer = User.create({ first_name: 'Mike', last_name: 'Jones', email: 'mike@hello.com', password: '123456', admin: false })
+pharmacist = User.create({ first_name: 'Michel', last_name: 'Drucker', email: 'michel@hello.com', password: '123456', admin: true })
 drug = Drug.create({ name: 'drug', prescribed: false })
 pharmacy = Pharmacy.create({ name: 'Pharmacie du Wagon',
                              address: '14 villa Gaudelet, 75011 Paris',
