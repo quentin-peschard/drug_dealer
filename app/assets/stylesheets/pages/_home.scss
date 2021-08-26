@@ -16,3 +16,13 @@
 .search-button {
   margin-top: 8px;
 }
+
+.home-view {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 15px;
+  justify-content: center;
+  background-color: white;
+  z-index: 0;
+}
