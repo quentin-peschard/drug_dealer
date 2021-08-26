@@ -28,6 +28,7 @@ data.each do |drug|
     img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"
   end
 end
+
 customer = User.create({ first_name: 'Mike', last_name: 'Jones', email: 'mike@hello.com', password: '123456' })
 pharmacist = User.create({ first_name: 'Michel', last_name: 'Drucker', email: 'michel@hello.com', password: '123456' })
 pharmacy = Pharmacy.create({ name: 'Pharmacie du Wagon',

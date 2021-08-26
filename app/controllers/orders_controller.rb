@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @orders = policy_scope(Order)
+    @lastorder = Order.where(user: current_user).last
     @ordered_drugs = policy_scope(OrderedDrug)
   end
 
@@ -23,13 +24,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new
     @pharmacy = Pharmacy.find(params[:pharmacy_id])
     @order.pharmacy = @pharmacy
     @order.user = current_user
     authorize @order
     if @order.save
-      redirect_to drugs_path
+      redirect_to drugs_path(pharmacy_id: @pharmacy.id)
     else
       render :new
     end
@@ -40,6 +41,40 @@ class OrdersController < ApplicationController
     @order.destroy
     authorize @order
     redirect_to orders_path
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @lastorder = Order.where(user: current_user).last
+    @ordered_drugs = @order.ordered_drugs
+    authorize @order
+  end
+
+  def readyStatus
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.status = "ready"
+    if @order.save!
+      redirect_to order_path(@order)
+    end
+  end
+
+  def pendingStatus
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.status = "pending"
+    if @order.save!
+      redirect_to order_path(@order)
+    end
+  end
+
+  def completeStatus
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.status = "complete"
+    if @order.save!
+      redirect_to order_path(@order)
+    end
   end
 
   private

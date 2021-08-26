@@ -1,0 +1,12 @@
+<% if !current_user.admin? && @order.status == 'initialized' %>
+  <%= render 'orders/user-initialize' %>
+<% elsif !current_user.admin? && @order.status == 'pending' %>
+  <%= render 'orders/user-pending' %>
+<% elsif !current_user.admin? && @order.status == 'ready' %>
+  <%= render 'orders/user-ready' %>
+<% elsif !current_user.admin? && @order.status == 'complete' %>
+  <%= render 'orders/user-complete' %>
+<% elsif current_user.admin? && @order.status == 'pending' %>
+  <%= render 'orders/pharm-pending' %>
+<% end %>
+<br><br><br><br><br><br><br><br>

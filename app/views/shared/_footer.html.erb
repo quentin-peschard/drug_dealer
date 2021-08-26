@@ -3,13 +3,21 @@
     <%= link_to root_path, class: "footer-btn" do %>
       <%= image_tag "home.png" %>
     <% end %>
-    <%= link_to root_path, class: "footer-btn" do %>
-      <%= image_tag "scan.png" %>
+    <%= link_to pharmacies_path, class: "footer-btn" do %>
+      <%= image_tag "map.png" %>
     <% end %>
-    <%= link_to root_path, class: "footer-btn" do %>
-      <%= image_tag "shopping-cart.png" %>
+    <% if @lastorder %>
+      <% if @lastorder.status == 'initialized' || @lastorder.status == 'pending' || @lastorder.status == 'ready' %>
+        <%= link_to order_path(@lastorder), class: "footer-btn" do %>
+          <%= image_tag "shopping-cart.png" %>
+        <% end %>
+      <% end %>
+      <% else %>
+        <%= link_to root_path, class: "footer-btn" do %>
+          <%= image_tag "shopping-cart.png" %>
+        <% end %>
     <% end %>
-    <%= link_to root_path, class: "footer-btn" do %>
+    <%= link_to orders_path, class: "footer-btn" do %>
       <%= image_tag "dashboard.png" %>
     <% end %>
   </div>
