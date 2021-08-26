@@ -1,0 +1,26 @@
+.searchadrug {
+  border-radius: 30px;
+  width: 281px;
+  position: relative;
+}
+
+.button_prescription {
+  border-radius: 50px;
+  position: absolute;
+  top: 10px;
+  right: 11px;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.3em 1.2em;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  background: #00B8F5;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 20px;
+    width: 20px;
+  }
+}
