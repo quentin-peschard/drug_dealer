@@ -1,9 +1,10 @@
 class DrugsController < ApplicationController
   def index
-    @drugs = policy_scope(Drug)
-    @drugs = Drug.all
+    retrieve_order
+
     @drugs = policy_scope(Drug)
     order_oui_non = current_user.orders.where(pharmacy_id: params[:pharmacy_id], status: "Order in Progress").first
+
     if order_oui_non
       @order = order_oui_non
     else
@@ -11,5 +12,13 @@ class DrugsController < ApplicationController
     end
   end
 
+  private
 
+  def retrieve_order
+    begin
+      @order = Order.find(user: current_user, pharmacy: Pharmacy.find(params[:pharmacy_id]))
+    rescue
+      @order = Order.create(user: current_user, pharmacy: Pharmacy.find(params[:pharmacy_id]))
+    end
+  end
 end
