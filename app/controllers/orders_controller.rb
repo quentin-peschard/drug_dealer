@@ -51,7 +51,25 @@ class OrdersController < ApplicationController
   def readyStatus
     @order = Order.find(params[:id])
     authorize @order
-    @order.status = "Ready"
+    @order.status = "ready"
+    if @order.save!
+      redirect_to order_path(@order)
+    end
+  end
+
+  def pendingStatus
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.status = "pending"
+    if @order.save!
+      redirect_to order_path(@order)
+    end
+  end
+
+  def completeStatus
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.status = "complete"
     if @order.save!
       redirect_to order_path(@order)
     end

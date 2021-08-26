@@ -1,0 +1,16 @@
+<div class="container order-drugs pb-5" id="ordered_wrap">
+<%= link_to 'Make Pending', "/orders/#{@order.id}/pending", class: 'btn btn-ghost' %>
+<h2><%= @order.status %></h2>
+  <% @ordered_drugs.each do |order_drug| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%=order_drug.drug.name%></h2>
+        <p><%=order_drug.drug.description%></p>
+      </div>
+      <%= link_to ordered_drug_path(order_drug), remote:true ,:style=>'width: 50px; color: gray', method: :delete, data: { confirm: "Are you sure?" } do %>
+      <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
