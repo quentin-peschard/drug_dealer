@@ -33,7 +33,7 @@
 
 <%# end %>
 
-<%# if !user.admin? &&  order.status == 'pending'%>
+<%# if !user.admin? && order.status == 'initialize' %>
 
 <div class="container order-drugs pb-5">
 <h2><%= @order.status %></h2>
@@ -44,9 +44,18 @@
         <h2><%=order_drug.drug.name%></h2>
         <p><%=order_drug.drug.description%></p>
       </div>
-      <h2>Waiting for Pharmacist to verify order</h2>
+      <%= link_to 'Delete', "/orders/#{@order.id}/finish", class: 'btn btn-ghost' %>
     </div>
   <% end %>
 </div>
 
+<%# if !user.admin? &&  order.status == 'pending'%>
+
+<div class="container order-drugs pb-5">
+<h2><%= @order.status %></h2>
+  <h3>Waiting to hear back from pharmacist.</h3>
+</div>
+
 <%# end %>
+
+<br><br><br><br><br><br><br><br>
