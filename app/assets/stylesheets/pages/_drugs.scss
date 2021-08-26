@@ -3,8 +3,7 @@
 }
 
 .title {
-  padding-top: 15px;
-  color: #FFFFFF ;
+  // padding-top: 15px;
 }
 
 
@@ -53,13 +52,13 @@
 .card-drug .card-drug-infos {
   padding: 16px;
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
   position: absolute;
   border-radius: 20px 20px 0 0;
   background-color: white;
   top: 111px;
   width: 100%;
+  height: 62px;
 }
 
 .card-drug-infos .card-drug-plus {
