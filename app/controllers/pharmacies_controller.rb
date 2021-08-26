@@ -1,5 +1,6 @@
 class PharmaciesController < ApplicationController
   def index
+    @lastorder = Order.where(user: current_user).last
     @pharmacies = policy_scope(Pharmacy).order(created_at: :desc)
     if params[:query].present?
       @pharmacies = Pharmacy.near(params[:query], 2)
@@ -11,6 +12,7 @@ class PharmaciesController < ApplicationController
 
   def show
     @pharmacy = Pharmacy.find(params[:id])
+    @lastorder = Order.where(user: current_user).last
     @markers = [{ lat: @pharmacy.latitude,
                   lng: @pharmacy.longitude,
                   info_window: render_to_string(partial: 'info_window', locals: { pharmacy: @pharmacy }) }]
