@@ -16,10 +16,10 @@ class OrderedDrugsController < ApplicationController
   end
 
   def update
-    @ordered_drug = OrderedDrug.find(params[:id])
-    @ordered_drug.update(ordered_drug_params)
-    redirect_to orders_path
+    @ordered_drug = OrderedDrug.find(params[:ordered_drug][:id].to_i)
     authorize @ordered_drug
+    @ordered_drug.update(ordered_drug_params)
+    redirect_back(fallback_location: root_path)
   end
 
   def create
@@ -35,9 +35,10 @@ class OrderedDrugsController < ApplicationController
 
   def destroy
     @ordered_drug = OrderedDrug.find(params[:id])
-    @ordered_drug.destroy
+
     authorize @ordered_drug
-    redirect_to ordered_drug_path
+    @ordered_drug.destroy
+    redirect_to order_path(@ordered_drug.order, anchor: "ordered_wrap")
   end
 
   private
