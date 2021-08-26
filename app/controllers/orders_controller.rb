@@ -23,13 +23,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new
     @pharmacy = Pharmacy.find(params[:pharmacy_id])
     @order.pharmacy = @pharmacy
     @order.user = current_user
     authorize @order
     if @order.save
-      redirect_to drugs_path
+      redirect_to drugs_path(pharmacy_id: @pharmacy.id)
     else
       render :new
     end
