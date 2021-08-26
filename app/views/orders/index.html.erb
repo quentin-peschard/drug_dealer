@@ -1,4 +1,8 @@
 <div class="container">
+<% @ordered_drugs.each do |ordered| %>
+<%= ordered.drug.name %>
+<% end %>
+
   <% @orders.each do |order| %>
     <%= order.status %>
   <% end %>

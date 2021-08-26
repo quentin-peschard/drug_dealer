@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @orders = policy_scope(Order)
+    @ordered_drugs = policy_scope(OrderedDrug)
   end
 
   def new
@@ -39,6 +40,21 @@ class OrdersController < ApplicationController
     @order.destroy
     authorize @order
     redirect_to orders_path
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @ordered_drugs = @order.ordered_drugs
+    authorize @order
+  end
+
+  def readyStatus
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.status = "Ready"
+    if @order.save!
+      redirect_to order_path(@order)
+    end
   end
 
   private

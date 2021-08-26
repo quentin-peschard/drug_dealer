@@ -2,6 +2,7 @@
 <div class="container">
   <div class="view">
 
+
     <%= form_tag drugs_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
@@ -11,7 +12,6 @@
       <%= hidden_field_tag :pharmacy_id, @pharmacy.to_s %>
       <%= submit_tag "Search", class: "button_prescription" %>
     <% end %>
-
 
     <div class="two-columns-cards">
       <% @drugs.each do |drug| %>
