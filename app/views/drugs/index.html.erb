@@ -1,9 +1,17 @@
 
 <div class="container">
   <div class="view">
-    <div class="title">
-      <h2>Medicine</h2>
-    </div>
+
+
+    <%= form_tag drugs_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placehorlder: "Search for a drug"
+      %>
+      <%= hidden_field_tag :pharmacy_id, @pharmacy.to_s %>
+      <%= submit_tag "Search", class: "button_prescription" %>
+    <% end %>
 
     <div class="two-columns-cards">
       <% @drugs.each do |drug| %>
@@ -14,7 +22,7 @@
           <div class="card-drug-infos">
             <div >
               <h2><%= drug.formated_name %></h2>
-              <span><%= @order.drug_count(drug) %></span>
+              <p>Cart: <%= @order.drug_count(drug) %></p>
             </div>
             <h2 class="card-drug-plus">
               <%  %>
