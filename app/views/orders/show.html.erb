@@ -1,4 +1,4 @@
-<% if !user.admin? && @order.status == 'initialize' %>
+<% if !user.admin? && @order.status == 'initialized' %>
   <%= render 'orders/user-initialize' %>
 <% elsif !user.admin? && @order.status == 'pending' %>
   <%= render 'orders/user-pending' %>
