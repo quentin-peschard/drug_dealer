@@ -8,4 +8,12 @@ class OrderPolicy < ApplicationPolicy
   def readyStatus?
     true
   end
+
+  def pendingStatus?
+    true
+  end
+
+  def completeStatus?
+    true
+  end
 end

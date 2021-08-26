@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :pharmacies, only: [:index, :show]
 
   get '/orders/:id/finish', to: 'orders#readyStatus'
+  get '/orders/:id/pending', to: 'orders#pendingStatus'
+  get '/orders/:id/complete', to: 'orders#completeStatus'
   resources :orders, only: [:index, :edit, :update, :destroy, :create, :show] do
     resources :ordered_drugs, only: [:index, :edit, :update, :destroy, :create]
 
