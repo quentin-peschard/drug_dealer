@@ -4,4 +4,8 @@ class OrderPolicy < ApplicationPolicy
       scope.where(user: user)
     end
   end
+
+  def readyStatus?
+    true
+  end
 end

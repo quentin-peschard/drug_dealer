@@ -42,6 +42,21 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
+  def show
+    @order = Order.find(params[:id])
+    @ordered_drugs = @order.ordered_drugs
+    authorize @order
+  end
+
+  def readyStatus
+    @order = Order.find(params[:id])
+    authorize @order
+    @order.status = "Ready"
+    if @order.save!
+      redirect_to order_path(@order)
+    end
+  end
+
   private
 
   def order_params

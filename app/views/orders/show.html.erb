@@ -1,0 +1,52 @@
+<%# If user.admin? && order.status == 'pending' %>
+
+<div class="container order-drugs">
+<%= link_to 'Finish order', "/orders/#{@order.id}/finish", class: 'btn btn-ghost' %>
+<h2><%= @order.status %></h2>
+  <% @ordered_drugs.each do |order_drug| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%=order_drug.drug.name%></h2>
+        <p><%=order_drug.drug.description%></p>
+      </div>
+      <% if !order_drug.price %>
+        <div class="edit-button">
+            <div class="btn btn-ghost price-edit">Edit</div>
+              <div class="price-form hidden">
+                <%= simple_form_for [@order, order_drug] do |f| %>
+                  <%= f.hidden_field :id, :value => order_drug.id %>
+                  <%= f.input :price %>
+                  <%= f.button :submit %>
+                <% end %>
+                </div>
+            </div>
+          </div>
+      <% else %>
+      <div class="btn btn-ghost price-edit">Edit</div>
+          <%= order_drug.price %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+<%# end %>
+
+<%# if !user.admin? &&  order.status == 'pending'%>
+
+<div class="container order-drugs pb-5">
+<h2><%= @order.status %></h2>
+  <% @ordered_drugs.each do |order_drug| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%=order_drug.drug.name%></h2>
+        <p><%=order_drug.drug.description%></p>
+      </div>
+      <h2>Waiting for Pharmacist to verify order</h2>
+    </div>
+  <% end %>
+</div>
+
+<%# end %>
