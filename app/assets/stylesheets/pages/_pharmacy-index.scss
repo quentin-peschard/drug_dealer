@@ -1,0 +1,36 @@
+.pharmacy-view {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  z-index: 0;
+  margin: 95px 10px 10px 10px;
+}
+
+.pharmacy-view h1 {
+  padding: 20px 20px 40px 20px;
+  margin-bottom: -25px;
+  border-radius: 20px 20px 0 0;
+  color: white;
+  font-weight: bold;
+  background-color: #00243D;
+  z-index: 1;
+}
+
+.pharmacy-view #map {
+  width: 95vw;
+  height: 300px;
+  border-radius: 20px 20px 0 0;
+  margin-bottom: -10px;
+  z-index: 2;
+}
+
+.pharmacy-view a:hover {
+  text-decoration: none;
+}
+
+canvas.mapboxgl-canvas {
+  height: -webkit-fill-available !important;
+  width: -webkit-fill-available !important;
+}

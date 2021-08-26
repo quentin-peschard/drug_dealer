@@ -1,21 +1,22 @@
-<div class="view">
+<div class="pharmacy-view">
   <h1>Pharmacies</h1>
   <div id="map"
               class="my-2"
-              style="width: 100%; height: 300px; border-radius: 7px;"
               data-markers="<%= @markers.to_json %>"
               data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <% @pharmacies.each do |pharmacy| %>
-    <%= link_to pharmacy_path(pharmacy) do %>
-      <div class="pharmacy-card">
-        <div class="pharmacy-card-infos">
-          <div>
-            <h2><%= pharmacy.name %></h2>
-            <p><%= pharmacy.description %></p>
+  <div class="pharmacy-cards">
+    <% @pharmacies.each do |pharmacy| %>
+      <%= link_to pharmacy_path(pharmacy) do %>
+        <div class="pharmacy-card">
+          <div class="pharmacy-card-infos">
+            <div>
+              <h2><%= pharmacy.name %></h2>
+              <p><%= pharmacy.address %></p>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

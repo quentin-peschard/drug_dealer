@@ -1,18 +1,34 @@
-<div class="container">
-  <div class="col-sm-12">
 
-    <div>
+<div class="container">
+  <div class="view">
+
+
+  <div>
+    <div class="title">
       <h2>Medecines</h2>
+    </div>
+
+      <div class="two-columns-cards">
         <% @drugs.each do |drug| %>
-          <div class="card-product">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <div class="card-product-infos">
-              <h2><%=drug.name%></h2>
-              <p><%=drug.description%></p>
-              <%= link_to "add", order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post %>
+          <div class="card-drug">
+            <div class="topcard">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            </div>
+            <div class="card-drug-infos">
+              <div >
+                <h2><%=drug.name.split(' ').map {|a| a.capitalize}.join(' ').split(',').first%></h2>
+              </div>
+              <h2 class="card-drug-plus">
+              <% if OrderedDrug.find_by(drug: drug, order: current_user.orders.last) %>
+                <%= link_to image_tag("cocher.png", :border=>0, :class => 'icon'), order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post %>
+                <% else %>
+                <%= link_to image_tag("plus.png", :border=>0, :class => 'icon'), order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post %>
+              <% end %>
+              </h2>
             </div>
           </div>
         <% end %>
-    </div>
+      </div>
+
   </div>
 </div>

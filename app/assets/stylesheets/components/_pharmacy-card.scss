@@ -1,24 +1,31 @@
 .pharmacy-card {
-  background: none;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 5px 0;
-  height: 60px;
-  border-radius: 7px;
+  background: #00B8F5;
+  height: 100px;
+  padding: 10px;
+  border-radius: 20px 20px 0 0;
+  margin-top: -18px;
+  box-shadow: 0 0 10px rgba(0,36,61,0.2);
+  transition-duration: 0.2s;
+}
+
+.pharmacy-card:last-child {
+  margin-bottom: -20px;
 }
 
 .pharmacy-card h2 {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: bold;
+  color: white;
   margin: 0;
 }
 
 .pharmacy-card p {
-  font-size: 9px;
-  opacity: .7;
-  margin: 0;
+  font-size: 14px;
+  color: white;
+  height: 50px;
 }
 
-.pharmacy-card .pharmacy-card-infos {
+.pharmacy-card-infos {
   padding: 10px 16px;
   display: flex;
   align-items: flex-end;
@@ -30,4 +37,11 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.pharmacy-cards {
+  z-index: 3;
+  padding-bottom: 80px;
+  margin-top: -20px;
+  background: #00B8F5;
 }
