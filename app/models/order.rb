@@ -4,5 +4,11 @@ class Order < ApplicationRecord
   has_many :ordered_drugs
   has_many :drugs, through: :ordered_drugs
 
+
+  def drug_count(drug)
+    drugs.where(id: drug.id).count
+  end
+
   STATUS = %()
+
 end
