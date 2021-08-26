@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="view">
 
@@ -16,11 +15,16 @@
           <% @drugs.each do |drug| %>
             <div class="card-drug">
               <div class="topcard">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+                <% if drug.pic.attached?%>
+              <%=cl_image_tag drug.pic.key%>
+            <%else%>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <%end%>
               </div>
               <div class="card-drug-infos">
                 <div >
-                  <h2><%=drug.name.split(' ').map {|a| a.capitalize}.join(' ').split(',').first%></h2>
+                  <h2><%= drug.formated_name %></h2>
+              <span><%= @order.drug_count(drug) %></span>
                 </div>
                 <h2 class="card-drug-plus">
                 <% if OrderedDrug.find_by(drug: drug, order: current_user.orders.last) %>
