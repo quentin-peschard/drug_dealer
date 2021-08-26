@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   end
 
-  resources :ordered_drugs, only: [:edit, :update, :destroy]
+  resources :ordered_drugs, only: [:edit, :update, :destroy] do
+    member do
+      get :plus, :minus
+    end
+  end
   resources :drugs, only: [:index]
 end

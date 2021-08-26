@@ -3,8 +3,8 @@
     <%= link_to root_path, class: "footer-btn" do %>
       <%= image_tag "home.png" %>
     <% end %>
-    <%= link_to root_path, class: "footer-btn" do %>
-      <%= image_tag "scan.png" %>
+    <%= link_to pharmacies_path, class: "footer-btn" do %>
+      <%= image_tag "map.png" %>
     <% end %>
     <% if @lastorder %>
       <% if @lastorder.status == 'initialized' || @lastorder.status == 'pending' || @lastorder.status == 'ready' %>

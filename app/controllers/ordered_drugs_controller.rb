@@ -41,6 +41,22 @@ class OrderedDrugsController < ApplicationController
     redirect_to order_path(@ordered_drug.order, anchor: "ordered_wrap")
   end
 
+  def plus
+    @ordered_drug = OrderedDrug.find(params[:id])
+    authorize @ordered_drug
+    @ordered_drug.quantity += 1
+    @ordered_drug.save
+    redirect_to order_path(@ordered_drug.order)
+  end
+
+  def minus
+    @ordered_drug = OrderedDrug.find(params[:id])
+    authorize @ordered_drug
+    @ordered_drug.quantity -= 1 if @ordered_drug.quantity.positive?
+    @ordered_drug.save
+    redirect_to order_path(@ordered_drug.order)
+  end
+
   private
 
   def ordered_drug_params
