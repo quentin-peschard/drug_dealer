@@ -18,13 +18,18 @@ User.destroy_all
 data = JSON.parse(File.read(Rails.root.join('db/drugs.json')))
 
 data.each do |drug|
-  Drug.create!(name: drug['name'],
+  new_drug = Drug.create!(name: drug['name'],
                description: drug['description'],
                prescribed: false)
+  if drug['pic']
+    file = URI.open(drug['pic'])
+    new_drug.pic.attach(io: file,filename: "#{new_drug.name}.png", content_type: 'image/png')
+  else
+    img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg"
+  end
 end
 customer = User.create({ first_name: 'Mike', last_name: 'Jones', email: 'mike@hello.com', password: '123456' })
 pharmacist = User.create({ first_name: 'Michel', last_name: 'Drucker', email: 'michel@hello.com', password: '123456' })
-drug = Drug.create({ name: 'drug', prescribed: false })
 pharmacy = Pharmacy.create({ name: 'Pharmacie du Wagon',
                              address: '14 villa Gaudelet, 75011 Paris',
                              user: pharmacist,

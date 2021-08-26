@@ -1,5 +1,5 @@
 class Drug < ApplicationRecord
-  # has_one_attached :photo
+  has_one_attached :pic
   has_many :ordered_drugs
 
   def formated_name

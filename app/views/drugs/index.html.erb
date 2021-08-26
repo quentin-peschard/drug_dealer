@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="view">
     <div class="title">
@@ -9,7 +8,11 @@
       <% @drugs.each do |drug| %>
         <div class="card-drug">
           <div class="topcard">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <% if drug.pic.attached?%>
+              <%=cl_image_tag drug.pic.key%>
+            <%else%>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <%end%>
           </div>
           <div class="card-drug-infos">
             <div >
