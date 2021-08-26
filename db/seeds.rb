@@ -15,7 +15,12 @@ Drug.destroy_all
 Order.destroy_all
 Pharmacy.destroy_all
 User.destroy_all
+
+puts 'Destroying everything...'
+
 data = JSON.parse(File.read(Rails.root.join('db/drugs.json')))
+
+puts 'Getting Data...'
 
 data.each do |drug|
   new_drug = Drug.create!(name: drug['name'],
@@ -29,12 +34,16 @@ data.each do |drug|
   end
 end
 
+puts 'Creating users...'
+
 customer = User.create({ first_name: 'Mike', last_name: 'Jones', email: 'mike@hello.com', password: '123456' })
 pharmacist = User.create({ first_name: 'Michel', last_name: 'Drucker', email: 'michel@hello.com', password: '123456' })
 pharmacy = Pharmacy.create({ name: 'Pharmacie du Wagon',
                              address: '14 villa Gaudelet, 75011 Paris',
                              user: pharmacist,
                              description: 'Surprisingly not a pharmacy, nice people are studying here though' })
+
+puts 'Creating pharmacies...'
 
 Pharmacy.create!([{ name: 'Pharmacie Saint Honoré',
                     description: 'Une très belle Pharmacie et même la plus belle de Paris',
@@ -116,3 +125,5 @@ Pharmacy.create!([{ name: 'Pharmacie Saint Honoré',
                     description: 'Super équipe et bonne réactivité des personnes en charge des commandes.',
                     address: '144 Boulevard de Ménilmontant, 75020 Paris',
                     user: pharmacist }])
+
+puts 'Done !'
