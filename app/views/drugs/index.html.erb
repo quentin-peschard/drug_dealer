@@ -29,7 +29,7 @@
                 </div>
                 <h2 class="card-drug-plus">
                 <% if OrderedDrug.find_by(drug: drug, order: current_user.orders.last) %>
-                  <%= link_to image_tag("cocher.png", :border=> 0, :class=>'icon'), order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id, pharmacy_id: pharmacy.id }), method: :post %>
+                  <%= link_to image_tag("cocher.png", :border=> 0, :class=>'icon'), order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post %>
                   <% else %>
                   <%= link_to image_tag("plus.png", :border=> 0, :class=>'icon'), order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post %>
                 <% end %>
