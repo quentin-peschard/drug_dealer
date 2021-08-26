@@ -2,6 +2,7 @@ class DrugsController < ApplicationController
   def index
     retrieve_order
     @drugs = policy_scope(Drug)
+    @lastorder = Order.where(user: current_user).last
   end
 
   private

@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
     @orders = policy_scope(Order)
+    @lastorder = Order.where(user: current_user).last
     @ordered_drugs = policy_scope(OrderedDrug)
   end
 
@@ -44,6 +45,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @lastorder = Order.where(user: current_user).last
     @ordered_drugs = @order.ordered_drugs
     authorize @order
   end
