@@ -17,7 +17,7 @@
         <p class="card__description"><%= @pharmacy.description%></p>
       </div>
       <div>
-      <%= link_to "More drugs", drugs_path(pharmacy_id: @pharmacy.id), class:"button_prescription", style:"background-color:#00B8F5"%>
+      <%= link_to "Begin Purchase", drugs_path(pharmacy_id: @pharmacy.id), class:"button_prescription", style:"background-color:#00B8F5"%>
       <%= link_to "Go back to Pharmacies", pharmacies_path, class:"button_prescription"%>
       </div>
     </a>
