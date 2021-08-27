@@ -3,8 +3,8 @@ class Drug < ApplicationRecord
   has_many :ordered_drugs
 
   include PgSearch::Model
-  pg_search_scope :search_by_name_and_description,
-    against: [ :name, :description ],
+  pg_search_scope :search_by_name,
+    against: [:name],
     using: {
       tsearch: { prefix: true }
     }
