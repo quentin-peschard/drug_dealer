@@ -10,11 +10,11 @@
       <% if @lastorder.status == 'initialized' || @lastorder.status == 'pending' || @lastorder.status == 'ready' %>
         <%= link_to order_path(@lastorder), class: "footer-btn" do %>
           <div class="cart"><%= image_tag "shopping-cart.png" %></div>
-          <% if @order %>
-            <% if @ordered_drugs && @ordered_drugs.count > 0 %>
-              <div class="total"> <%= @ordered_drugs.count %> </div>
+          <%# if @order %>
+            <% unless current_user.orders.last.quantity.zero? %>
+              <div class="total"> <%= current_user.orders.last.quantity %> </div>
             <% end %>
-          <% end %>
+          <%# end %>
         <% end %>
       <% end %>
       <% else %>
