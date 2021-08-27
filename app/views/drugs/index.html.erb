@@ -1,20 +1,19 @@
 <div class="container">
   <div class="view">
-
-  <div class="pharma-title">
-    <h2><%= @pharmacy.name  %></h2>
-  </div>
-
-    <%= form_tag drugs_path, method: :get do %>
+    <div class="pharma-title">
+      <h2><%= @pharmacy.name  %></h2>
+    </div>
+    <%= form_tag drugs_path, method: :get, class: "drug-index-search" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control searchadrug",
-        placehorlder: "Search for a drug"
+        placeholder: "Enter a drug's name"
       %>
-      <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
-      <%= submit_tag "☌", class: "button_prescription" %>
-    <% end %>
 
+      <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
+      <%= submit_tag "☌", class: "drug-search-bard-button" %>
+
+    <% end %>
     <div class="two-columns-cards">
           <% @drugs.each do |drug| %>
             <div class="card-drug">
