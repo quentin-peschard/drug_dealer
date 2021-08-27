@@ -11,7 +11,7 @@
         class: "form-control searchadrug",
         placehorlder: "Search for a drug"
       %>
-      <%= hidden_field_tag :pharmacy_id, @pharmacy.to_s %>
+      <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
       <%= submit_tag "☌", class: "button_prescription" %>
     <% end %>
 
