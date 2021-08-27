@@ -38,8 +38,8 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
-    @order.destroy
     authorize @order
+    @order.destroy
     redirect_to orders_path
   end
 
@@ -55,7 +55,7 @@ class OrdersController < ApplicationController
     authorize @order
     @order.status = "ready"
     if @order.save!
-      redirect_to order_path(@order)
+      redirect_to orders_path
     end
   end
 
@@ -64,7 +64,7 @@ class OrdersController < ApplicationController
     authorize @order
     @order.status = "pending"
     if @order.save!
-      redirect_to order_path(@order)
+      redirect_to orders_path
     end
   end
 
@@ -73,7 +73,7 @@ class OrdersController < ApplicationController
     authorize @order
     @order.status = "complete"
     if @order.save!
-      redirect_to order_path(@order)
+      redirect_to orders_path
     end
   end
 
