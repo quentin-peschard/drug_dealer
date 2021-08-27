@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :pharmacies, only: [:index, :show]
 
-  get '/orders/:id/finish', to: 'orders#readyStatus'
-  get '/orders/:id/pending', to: 'orders#pendingStatus'
-  get '/orders/:id/complete', to: 'orders#completeStatus'
+  get '/orders/:id/finish', to: 'orders#readyStatus', as: 'ready_status'
+  get '/orders/:id/pending', to: 'orders#pendingStatus', as: 'pending_status'
+  get '/orders/:id/complete', to: 'orders#completeStatus', as: 'complete_status'
   resources :orders, only: [:index, :edit, :update, :destroy, :create, :show] do
     resources :ordered_drugs, only: [:index, :edit, :update, :create]
   end
