@@ -4,7 +4,7 @@
      <h1>Drug<br/>Dealer</h1>
     </div>
     <div class="col align-self-center">
-    <%= image_tag "logo.png", style: 'height:150px;width:150px' %>
+    <%= image_tag "logo.png", style: 'height:120px;width:120px' %>
       <%# <img src="logo.png" alt="" width="150" height="150"> %>
     </div>
   </div>
@@ -15,12 +15,11 @@
 
 <div class="banner">
   <div id="banner-search-bar">
-    <p>Prescription Delivery</p>
     <%= form_tag pharmacies_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         id: "address-input",
-        placeholder: "Type your location here...."
+        placeholder: "Enter your location"
       %>
       <%= submit_tag "Go", class: "search-button" %>
     <% end %>
