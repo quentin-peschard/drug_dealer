@@ -34,6 +34,13 @@
   backdrop-filter: blur(8px);
 }
 
+#action_bar {
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+    clear: both;
+    overflow: hidden;
+}
+
 .cart {
   position: relative;
 }
@@ -47,7 +54,7 @@
   font-size: 8pt;
   text-align: center;
   line-height: 20px;
-  left: 235px;
+  margin-left: 20px;
   top: 2px;
   z-index: 50;
 }
