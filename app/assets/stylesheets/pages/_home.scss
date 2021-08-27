@@ -22,13 +22,36 @@
   padding: 5px 35px;
 }
 
+#banner-search-bar p {
+  font-family: "Nunito", "Helvetica", "sans-serif";
+  text-align: left;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.banner form {
+  display: flex;
+}
+
+.ap-input {
+  position: relative;
+vertical-align: top;
+border-radius: 15px;
+background-color: #D6F3FF;
+border: dodgerblue;
+margin-right: 12px;
+}
+
 .sub-title {
   padding-top: 30px;
   padding-left: 42px;
 }
 
 .search-button {
-  margin-top: 8px;
+  margin: 0;
+border-radius: 30px;
+background-color: #00B8F5;
+border: dashed;
 }
 
 .home-view {
