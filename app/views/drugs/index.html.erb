@@ -9,8 +9,10 @@
         class: "form-control searchadrug",
         placeholder: "Enter a drug's name"
       %>
-      <%= hidden_field_tag :pharmacy_id, @pharmacy.to_s %>
+
+      <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
       <%= submit_tag "☌", class: "drug-search-bard-button" %>
+
     <% end %>
     <div class="two-columns-cards">
           <% @drugs.each do |drug| %>
