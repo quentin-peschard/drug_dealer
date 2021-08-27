@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   get '/orders/:id/pending', to: 'orders#pendingStatus'
   get '/orders/:id/complete', to: 'orders#completeStatus'
   resources :orders, only: [:index, :edit, :update, :destroy, :create, :show] do
-    resources :ordered_drugs, only: [:index, :edit, :update, :destroy, :create]
-
+    resources :ordered_drugs, only: [:index, :edit, :update, :create]
   end
 
   resources :ordered_drugs, only: [:edit, :update, :destroy] do
@@ -16,5 +15,6 @@ Rails.application.routes.draw do
       get :plus, :minus
     end
   end
+
   resources :drugs, only: [:index]
 end

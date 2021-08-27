@@ -11,4 +11,7 @@ class Order < ApplicationRecord
 
   STATUS = %()
 
+  def quantity
+    ordered_drugs.pluck(:quantity).sum
+  end
 end
