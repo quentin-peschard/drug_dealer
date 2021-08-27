@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 .title {
-  padding-top: 15px;
+  padding-top: 35px;
   padding-left: 30px;
   h1 {
     font-size: 55px;
@@ -9,7 +9,6 @@
 }
 
 .banner {
-  height: 100vh;
   display: flex;
   position: relative;
   top: 0;
@@ -54,14 +53,19 @@ background-color: #00B8F5;
 border: dashed;
 }
 
+.algolia-places {
+  width: 65vw;
+  margin-right: 20px;
+}
+
 .home-view {
   display: flex;
   position: relative;
   flex-direction: column;
-  padding: 15px;
   justify-content: center;
   background-color: white;
   z-index: 0;
+  padding-bottom: 15px 15px 80px 15px;
 }
 
 // @media screen and (max-width: 400px) {
