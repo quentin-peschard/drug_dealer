@@ -4,6 +4,8 @@ class DrugsController < ApplicationController
     @drugs = policy_scope(Drug)
     @lastorder = Order.where(user: current_user).last
     @ordered_drugs = policy_scope(OrderedDrug)
+    @pharmacy = Pharmacy.find(params[:pharmacy_id])
+
 
     if params.dig(:query).present?
       @drugs = @drugs.search_by_name_and_description(params[:query])

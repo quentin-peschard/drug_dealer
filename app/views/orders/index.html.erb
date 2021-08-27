@@ -1,9 +1,27 @@
-<div class="container">
-<% @ordered_drugs.each do |ordered| %>
-<%= ordered.drug.name %>
-<% end %>
-
+<div class="view">
+  <h1>My Dashboard</h1>
   <% @orders.each do |order| %>
-    <%= order.status %>
+    <div class="dashboard-card">
+      <%= link_to order_path(order) do %>
+        <div class="dashboard-card-infos">
+          <h2>Order #<%= order.id %></h2>
+          <p><%= order.pharmacy.name %></p>
+          <% if order.status == 'initialized' %>
+            <h6>Click here to finish your order</h6>
+          <% elsif order.status == 'pending' %>
+            <h6>The pharmacist is working on your order</h6>
+          <% elsif order.status == 'ready' %>
+            <h6>Click here to make your payment</h6>
+          <% elsif order.status == 'complete' %>
+            <h6>Order delivered</h6>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="dashboard-card-icons">
+        <%= link_to order_path(order), method: :delete do %>
+          <%= image_tag "trash.png" %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
