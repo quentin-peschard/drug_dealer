@@ -3,6 +3,8 @@ class DrugsController < ApplicationController
     retrieve_order
     @drugs = policy_scope(Drug)
     @lastorder = Order.where(user: current_user).last
+    @pharmacy = Pharmacy.find(params[:pharmacy_id])
+
   end
 
   private

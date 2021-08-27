@@ -2,9 +2,11 @@
   background:#00243D;
 }
 
-.title {
-  // padding-top: 15px;
+.pharma-title {
+  padding-top: 15px;
+  padding-bottom: 23px;
 }
+
 
 
 .two-columns-cards {
@@ -12,8 +14,14 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
   padding-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 45px;
 }
+
+// .card-drug-contour {
+//   background: #00243D;
+//   height: 193px;
+//   border-radius: 15px;
+// }
 
 
 .card-drug {
@@ -28,12 +36,14 @@
 .topcard {
   height: 150px;
   width: 100%;
+  background: #E2E8F2;
 }
 
 .topcard > img {
   height: 130px;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding-bottom: 23px;
 }
 
 .card-drug h2 {
@@ -59,6 +69,8 @@
   top: 111px;
   width: 100%;
   height: 62px;
+  display: flex;
+  align-items: center;
 }
 
 .card-drug .card-drug-infos p{

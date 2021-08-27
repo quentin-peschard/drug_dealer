@@ -1,6 +1,10 @@
 <div class="container">
   <div class="view">
 
+  <div class="pharma-title">
+    <h2><%= @pharmacy.name  %></h2>
+  </div>
+
     <%= form_tag drugs_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
