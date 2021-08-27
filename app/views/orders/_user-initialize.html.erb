@@ -2,7 +2,11 @@
   <h1>Cart</h1>
   <% @ordered_drugs.each do |ordered_drug| %>
     <div class="cart-card">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <% if ordered_drug.drug.pic.attached?%>
+        <%=cl_image_tag ordered_drug.drug.pic.key%>
+      <%else%>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <%end%>
       <div class="cart-card-infos">
         <h2><%=ordered_drug.drug.name%></h2>
         <div class=cart-card-bottom>
@@ -16,11 +20,8 @@
         </div>
       </div>
       <div class="cart-card-icons">
-        <%= link_to do %>
+        <%= link_to order_ordered_drug_path(ordered_drug), method: 'DELETE' do %>
           <%= image_tag "trash.png" %>
-        <% end %>
-        <%= link_to do %>
-          <%= image_tag "pencil.png" %>
         <% end %>
       </div>
     </div>

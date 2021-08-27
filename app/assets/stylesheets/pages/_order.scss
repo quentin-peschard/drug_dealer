@@ -4,14 +4,13 @@
   background: white;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .cart-card img {
   height: 80px;
   width: 80px;
-  object-fit: cover;
-  border-radius: 20px;
+  object-fit: contain;
+  border-radius: 10px;
 }
 
 .cart-card h2 {
@@ -77,7 +76,7 @@
 .cart-card-icons {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 20px;
   height: 80px;
   a {
