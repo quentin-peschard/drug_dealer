@@ -29,7 +29,7 @@ class OrderedDrugsController < ApplicationController
     if @ordered_drug.save!
       redirect_to drugs_path(params: { pharmacy_id: params[:pharmacy_id] })
     else
-      render '???'
+      render :new
     end
   end
 
@@ -60,6 +60,6 @@ class OrderedDrugsController < ApplicationController
   private
 
   def ordered_drug_params
-    params.require(:ordered_drug).permit(:quantity, :price)
+    params.require(:ordered_drug).permit(:quantity, :price, :prescriptions)
   end
 end

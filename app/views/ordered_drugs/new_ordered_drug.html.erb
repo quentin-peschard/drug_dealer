@@ -1,0 +1,6 @@
+<h1>Adding Prescription</h1>
+
+<% simple_form_for [@order] do |f|%>
+    <%= f.input :prescriptions, as: :file%>
+    <%= f.submit "Validate Prescription", class: "btn-checkout"%>
+<%end%>
