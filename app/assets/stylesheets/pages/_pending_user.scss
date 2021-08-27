@@ -1,0 +1,38 @@
+.pending-view {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: center;
+  background-color: white;
+  z-index: 0;
+  margin-top: 85px;
+  opacity: 0.5;
+}
+
+.flash {
+  padding: 16px 24px;
+  position: absolute;
+  top: 40%;
+  width: 88vw;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.flash-content {
+  flex-grow: 1;
+}
+
+.flash-warning {
+  border: 2px solid #00B8F5;
+}
+
+.flash .fas {
+  padding: 10px 0;
+}
