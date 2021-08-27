@@ -26,6 +26,9 @@
       </div>
     </div>
   <% end %>
+  <%= link_to new_order_ordered_drug_path(order_id: @order.id) do %>
+    <button class="btn-ghost">Add Prescription</button>
+  <%end%>
   <%= link_to pending_status_path(@order) do %>
     <button class="btn-checkout">Validate shopping cart</button>
   <% end %>
