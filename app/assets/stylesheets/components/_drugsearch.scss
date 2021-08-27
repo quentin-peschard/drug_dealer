@@ -1,6 +1,6 @@
 .searchadrug {
   border-radius: 30px;
-  width: 281px;
+  width: 73vw;
   position: relative;
   padding-top: 7px;
 }
@@ -16,12 +16,10 @@
   text-align: center;
   border: none;
   background: #00B8F5;
-  width: 30px;
+  width: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  img {
-    height: 20px;
-    width: 20px;
-  }
+  font-size: 16px;
+  transform: rotate(112deg);
 }

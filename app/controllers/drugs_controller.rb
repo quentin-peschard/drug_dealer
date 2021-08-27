@@ -5,6 +5,9 @@ class DrugsController < ApplicationController
     @lastorder = Order.where(user: current_user).last
     @pharmacy = Pharmacy.find(params[:pharmacy_id])
 
+    if params.dig(:query).present?
+      @drugs = @drugs.search_by_name_and_description(params[:query])
+    end
   end
 
   private
