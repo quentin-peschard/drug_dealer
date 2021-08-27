@@ -8,9 +8,7 @@
         placehorlder: "Search for a drug"
       %>
       <%= hidden_field_tag :pharmacy_id, @pharmacy.to_s %>
-      <%= button_tag :submit, class: "button_prescription" do %>
-        <%= image_tag('download.png') %>
-      <% end %>
+      <%= submit_tag "☌", class: "button_prescription" %>
     <% end %>
 
     <div class="two-columns-cards">

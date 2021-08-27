@@ -3,6 +3,10 @@ class DrugsController < ApplicationController
     retrieve_order
     @drugs = policy_scope(Drug)
     @lastorder = Order.where(user: current_user).last
+
+    if params.dig(:query).present?
+      @drugs = @drugs.search_by_name_and_description(params[:query])
+    end
   end
 
   private
