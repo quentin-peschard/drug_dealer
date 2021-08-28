@@ -1,0 +1,31 @@
+<div class="view">
+  <%= link_to "Sign out", destroy_user_session_path(@user), method: :delete, class: 'sign-out-btn' %>
+  <h1>My Dashboard</h1>
+  <% pharmacist = current_user.pharmacies %>
+  <% pharmacist.each do |pharmacy| %>
+    <% pharmacy.orders.each do |order| %>
+      <div class="dashboard-card">
+        <%= link_to order_path(order) do %>
+          <div class="dashboard-card-infos">
+            <h2>Order #<%= order.id %></h2>
+            <p><%= order.pharmacy.name %></p>
+            <% if order.status == 'pending' %>
+              <h6>Click here to review the order</h6>
+            <% elsif order.status == 'ready' %>
+              <h6>The customer is making payment</h6>
+            <% elsif order.status == 'complete' %>
+              <h6>Order delivered to the customer</h6>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="dashboard-card-icons">
+          <% if order.status == 'pending' %>
+            <%= link_to order_path(order), method: :patch do %>
+              <%= image_tag "pencil.png" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
