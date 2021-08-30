@@ -1,24 +1,36 @@
  .main{
-    display: flex;
-    justify-content: space-between;
-  }
-  .main2 {
-    display: flex;
-  }
-  .card-prescription {
-    width: 70px;
-    height: 70px;
-    margin: 0px 10px;
-    cursor: pointer;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    border-radius: 20px;
-    box-shadow: 1px 1px 5px 0px rgba(82, 82, 82, 0.75);
-    transition: all 150ms ease-in-out;
-  }
+  padding: 10px;
+  border-radius: 20px;
+  background-color: lightgray;
+  margin: 10px 0;
+}
 
-  .order_prescriptions > label {
+.main2{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-prescription {
+  width: 70px;
+  height: 70px;
+  margin-top: 10px;
+  cursor: pointer;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  border-radius: 20px;
+  transition: all 150ms ease-in-out;
+  object-fit: cover;
+}
+
+.edit_order {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order_prescriptions > label {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
   padding: 8px 24px;
@@ -27,16 +39,22 @@
   opacity: 0.6;
   transition: opacity 0.3s ease;
   margin: 0;
-  }
+}
 
-  .btn {
-  width: 100%;
-  margin: 0;
-  border-radius: 32px;
+.btn-prescription {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
   border: none;
   padding: 10px;
-  background-color: #09BC8A;
+  background-color: #000507;
   color: white;
   font-weight: 400;
   font-size: 18px;
-  }
+}
+
+.form-group {
+  margin: 0 20px 0 0;
+  background-color: white;
+  border-radius: 32px;
+}

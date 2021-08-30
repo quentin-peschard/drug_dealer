@@ -2,26 +2,57 @@
   <div class="pharmacy-show-top">
     <%= link_to "< Continue shopping", drugs_path, class:"button-pharma-index"%>
   </div>
-    <div class="main">
     <h1>Cart</h1>
+    <div class="main">
       <%= simple_form_for(order) do |f|%>
-        <%= f.input :prescriptions, as: :file, input_html: { multiple: true, class:'d-none'}  %>
-        <%= f.submit "Submit", class:'btn'%>
+        <%= f.input :prescriptions, as: :file, input_html: { multiple: true, class:'d-none'}, label: "Add my prescription" %>
+        <%= f.submit "Go", class:'btn-prescription' %>
       <% end %>
-  </div>
-  <div class=main2>
-      <% if order.prescriptions.attached?%>
-        <%@order.prescriptions.each do |prescription|%>
-          <%= link_to destroy_prescription_order_path(order, prescription: prescription), method: :patch, remote: true do%>
+      <% if order.prescriptions.attached? %>
+        <% @order.prescriptions.each do |prescription| %>
+          <div class=main2>
             <%= cl_image_tag prescription.key, class: 'card-prescription' %>
-          <%end%>
-        <%end%>
-      <%end%>
-  </div>
+            <div class="cart-card-icons">
+              <%= link_to destroy_prescription_order_path(order, prescription: prescription), method: :patch, remote: true do%>
+                <%= image_tag "trash.png" %>
+              <% end %>
+            </div>
+          </div>
+          <script>
+            document.querySelector(".card-prescription").addEventListener("click", function() {
+              document.querySelector('#modal-btn').click()
+            });
+          </script>
+          <!-- Modal prescription process -->
+          <button type="button" id="modal-btn" class="btn btn-primary d-none" data-toggle="modal" data-target="#exampleModal">
+          </button>
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">My prescription</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= cl_image_tag prescription.key, style: 'width: 100%;' %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end Modal -->
+        <% end %>
+      <% end %>
+    </div>
+
+
+
     <% @ordered_drugs.each do |ordered_drug| %>
       <div class="cart-card">
         <% if ordered_drug.drug.pic.attached?%>
-          <%=cl_image_tag ordered_drug.drug.pic.key%>
+          <%=cl_image_tag ordered_drug.drug.pic.key %>
         <%else%>
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
         <%end%>
@@ -43,18 +74,10 @@
           <% end %>
         </div>
       </div>
-      <div class="cart-card-icons">
-        <%= link_to ordered_drug_path(ordered_drug), method: :delete do %>
-          <%= image_tag "trash.png" %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-  <%= link_to order_ordered_drug_path(order_id: @order.id), method:'POST' do %>
-    <button class="btn-ghost">Add Prescription</button>
-  <%end%>
 
-  <%= link_to pending_status_path(@order) do %>
-    <button class="btn-checkout">Validate shopping cart</button>
-  <% end %>
+    <% end %>
+    <%= link_to pending_status_path(@order) do %>
+      <button class="btn-checkout">Validate shopping cart</button>
+    <% end %>
 </div>
+
