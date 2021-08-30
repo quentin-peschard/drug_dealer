@@ -1,50 +1,48 @@
-<div class="footer-wrapper">
-  <div class="footer">
-    <div class="glow <%= 'active' if current_page?(root_path) %>">
-      <%= link_to root_path, class: "footer-btn" do %>
-        <%= image_tag "home.png" %>
-      <% end %>
-    </div>
-    <div class="glow <%= 'active' if current_page?(pharmacies_path) || (@pharmacy && current_page?(pharmacy_path(@pharmacy))) %>">
-      <%= link_to pharmacies_path, class: "footer-btn" do %>
-        <%= image_tag "map.png" %>
-      <% end %>
-    </div>
-    <div class="glow <%= 'active' if @lastorder && (current_page?(order_path(@lastorder)) || current_page?(drugs_path)) %>">
-      <% if @lastorder %>
-        <% if @lastorder.status == 'initialized' || @lastorder.status == 'pending' || @lastorder.status == 'ready' || @lastorder.status == 'complete' %>
-          <%= link_to order_path(@lastorder), class: "footer-btn" do %>
-            <div class="action-bar">
-              <div class="cart"><%= image_tag "shopping-cart.png" %></div>
-                <% if current_user.orders.last.status == 'initialized' %>
-                  <% unless current_user.orders.last.quantity.zero? %>
-                    <div class="total"> <%= current_user.orders.last.quantity %> </div>
-                  <% end %>
+<div class="footer">
+  <div class="glow <%= 'active' if current_page?(root_path) %>">
+    <%= link_to root_path, class: "footer-btn" do %>
+      <%= image_tag "home.png" %>
+    <% end %>
+  </div>
+  <div class="glow <%= 'active' if current_page?(pharmacies_path) %>">
+    <%= link_to pharmacies_path, class: "footer-btn" do %>
+      <%= image_tag "map.png" %>
+    <% end %>
+  </div>
+  <div class="glow <%= 'active' if @lastorder && current_page?(order_path(@lastorder)) %>">
+    <% if @lastorder %>
+      <% if @lastorder.status == 'initialized' || @lastorder.status == 'pending' || @lastorder.status == 'ready' || @lastorder.status == 'complete' %>
+        <%= link_to order_path(@lastorder), class: "footer-btn" do %>
+          <div class="action-bar">
+            <div class="cart"><%= image_tag "shopping-cart.png" %></div>
+              <% if current_user.orders.last.status == 'initialized' %>
+                <% unless current_user.orders.last.quantity.zero? %>
+                  <div class="total"> <%= current_user.orders.last.quantity %> </div>
                 <% end %>
-            </div>
-          <% end %>
+              <% end %>
+          </div>
         <% end %>
-        <% else %>
-          <%= link_to root_path, class: "footer-btn" do %>
-            <%= image_tag "shopping-cart.png" %>
-          <% end %>
       <% end %>
-    </div>
-    <div class="glow <%= 'active' if current_page?(orders_path) %>">
-      <%= link_to orders_path, class: "footer-btn" do %>
-        <%= image_tag "dashboard.png" %>
-      <% end %>
-    </div>
-    <div class="glow <%= 'active' if current_page?(user_session_path) %>">
-      <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, :method => :delete, class: "footer-btn" do %>
-          <%= image_tag "user.png" %>
-        <% end %>
       <% else %>
-        <%= link_to user_session_path, class: "footer-btn" do %>
-          <%= image_tag "user.png" %>
+        <%= link_to root_path, class: "footer-btn" do %>
+          <%= image_tag "shopping-cart.png" %>
         <% end %>
+    <% end %>
+  </div>
+  <div class="glow <%= 'active' if current_page?(orders_path) %>">
+    <%= link_to orders_path, class: "footer-btn" do %>
+      <%= image_tag "dashboard.png" %>
+    <% end %>
+  </div>
+  <div class="glow <%= 'active' if current_page?(user_session_path) %>">
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, :method => :delete, class: "footer-btn" do %>
+        <%= image_tag "user.png" %>
       <% end %>
-    </div>
+    <% else %>
+      <%= link_to user_session_path, class: "footer-btn" do %>
+        <%= image_tag "user.png" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
