@@ -60,5 +60,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # Ngrok for pwa web mobile app
-  config.hosts << /[a-z0-9]+\.ngrok\.io/
+  config.hosts << /[a-z0-9\W]+\.ngrok\.io/
 end
