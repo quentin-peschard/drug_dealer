@@ -23,6 +23,10 @@
               <% end %>
             </div>
           </div>
+        <%@order.prescriptions.each do |prescription|%>
+          <%= link_to destroy_prescription_order_path(order, prescription: prescription), method: :patch, remote: true do%>
+            <%= cl_image_tag prescription.key, class: 'card-prescription' %>
+          <%end%>
         <%end%>
       <%end%>
   </div>
