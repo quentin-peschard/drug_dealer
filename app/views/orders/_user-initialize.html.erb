@@ -12,7 +12,9 @@
   <div class=main2>
       <% if order.prescriptions.attached?%>
         <%@order.prescriptions.each do |prescription|%>
-          <%= cl_image_tag prescription.key, class: 'card-prescription' %>
+          <%= link_to destroy_prescription_order_path(order, prescription: prescription), method: :patch, remote: true do%>
+            <%= cl_image_tag prescription.key, class: 'card-prescription' %>
+          <%end%>
         <%end%>
       <%end%>
   </div>
