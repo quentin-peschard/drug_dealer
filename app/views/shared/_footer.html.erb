@@ -16,8 +16,10 @@
           <%= link_to order_path(@lastorder), class: "footer-btn" do %>
             <div class="action-bar">
               <div class="cart"><%= image_tag "shopping-cart.png" %></div>
-                <% unless current_user.orders.last.quantity.zero? %>
-                  <div class="total"> <%= current_user.orders.last.quantity %> </div>
+                <% if current_user.orders.last.status == 'initialized' %>
+                  <% unless current_user.orders.last.quantity.zero? %>
+                    <div class="total"> <%= current_user.orders.last.quantity %> </div>
+                  <% end %>
                 <% end %>
             </div>
           <% end %>
