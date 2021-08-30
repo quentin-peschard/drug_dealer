@@ -59,6 +59,6 @@ class OrderedDrugsController < ApplicationController
   private
 
   def ordered_drug_params
-    params.require(:ordered_drug).permit(:quantity, :price)
+    params.require(:ordered_drug).permit(:quantity, :price, :prescriptions)
   end
 end
