@@ -59,3 +59,13 @@
   top: 2px;
   z-index: 50;
 }
+
+.glow {
+  padding: 5px;
+}
+
+.glow.active {
+  background-color: #00B8F5;
+  border-radius: 10px;
+  padding: 5px;
+}
