@@ -1,14 +1,16 @@
-.searchadrug {
-  border-radius: 30px;
-  width: 73vw;
-  position: relative;
+.drug-index-search {
+  display: flex;
+  flex-direction: row;
 }
 
-.button_prescription {
+.searchadrug {
+  border-radius: 30px;
+  width: 70vw;
+  padding-top: 7px;
+}
+
+.drug-search-bard-button {
   border-radius: 50px;
-  position: absolute;
-  top: 10px;
-  right: 16px;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.3em 1.2em;
   text-decoration: none;
@@ -21,4 +23,5 @@
   align-items: center;
   font-size: 16px;
   transform: rotate(112deg);
+  margin-left: 10px;
 }

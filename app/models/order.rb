@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :user
   belongs_to :pharmacy
-  has_many :ordered_drugs
+  has_many :ordered_drugs, dependent: :destroy
   has_many :drugs, through: :ordered_drugs
   has_many_attached :prescriptions
 
@@ -14,5 +14,11 @@ class Order < ApplicationRecord
 
   def quantity
     ordered_drugs.pluck(:quantity).sum
+  end
+
+  def total_price
+    ordered_drugs.map do |ordered_drug|
+      ordered_drug.price * ordered_drug.quantity
+    end.sum
   end
 end

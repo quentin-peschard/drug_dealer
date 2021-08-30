@@ -1,35 +1,59 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  background: white;
-  border-radius: 35px;
-  padding: 15px 20px;
+  background-color: rgba(255,255,255, 0.5);
+  border-radius: 25px 25px 0 0;
   position: fixed;
-  bottom: 10px;
+  padding: 5px 20px;
+  bottom: 0;
   opacity: 1;
+  backdrop-filter: blur(8px);
   height: fit-content;
-  width: 95vw;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0 15px rgba(0,0,0,0.07);
+  width: 100%;
   z-index: 2;
 }
 
 .footer .footer-btn img {
-  height: 30px;
+  height: 28px;
 }
 
 .footer .footer-btn a {
   height: 40px;
 }
 
-.footer-wrapper {
-  display: flex;
-  justify-content: space-around;
-  background-color: rgba(255,255,255, 0.5);
-  position: fixed;
-  bottom: 0;
-  height: 80px;
+#action_bar {
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+    clear: both;
+    overflow: hidden;
+}
+
+.cart {
+  position: relative;
+}
+.total {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 8pt;
+  text-align: center;
+  line-height: 20px;
+  margin-left: 22px;
+  margin-bottom: 5px;
+  top: 2px;
+  z-index: 50;
+}
+
+.glow {
   padding: 10px;
-  border-radius: 35px 35px 0 0;
-  width: 100%;
-  backdrop-filter: blur(8px);
+}
+
+.glow.active {
+  background-color: rgb(225,225,225);
+  border-radius: 50%;
+  padding: 10px;
 }

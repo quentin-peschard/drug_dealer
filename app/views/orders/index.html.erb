@@ -1,9 +1,5 @@
-<div class="container">
-<% @ordered_drugs.each do |ordered| %>
-<%= ordered.drug.name %>
+<% if current_user.admin? %>
+  <%= render 'orders/pharm-index' %>
+<% else %>
+  <%= render 'orders/user-index' %>
 <% end %>
-
-  <% @orders.each do |order| %>
-    <%= order.status %>
-  <% end %>
-</div>

@@ -1,16 +1,19 @@
 <div class="container">
   <div class="view">
-
-    <%= form_tag drugs_path, method: :get do %>
+    <div class="pharma-title">
+      <h2><%= @pharmacy.name  %></h2>
+    </div>
+    <%= form_tag drugs_path, method: :get, class: "drug-index-search" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control searchadrug",
-        placehorlder: "Search for a drug"
+        placeholder: "Enter a drug's name"
       %>
-      <%= hidden_field_tag :pharmacy_id, @pharmacy.to_s %>
-      <%= submit_tag "☌", class: "button_prescription" %>
-    <% end %>
 
+      <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
+      <%= submit_tag "☌", class: "drug-search-bard-button" %>
+
+    <% end %>
     <div class="two-columns-cards">
           <% @drugs.each do |drug| %>
             <div class="card-drug">
@@ -27,9 +30,10 @@
                 </div>
                 <h2 class="card-drug-plus">
                 <% if OrderedDrug.find_by(drug: drug, order: current_user.orders.last) %>
-                  <%= link_to image_tag("cocher.png", border: 0, class:'icon'), order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post %>
+                  <%= image_tag("cocher.png", border: 0, class:'icon') %>
+                  <%# <%= link_to image_tag("cocher.png", border: 0, class:'icon'), order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post, remote: true %> %>
                   <% else %>
-                  <%= link_to image_tag("plus.png", border: 0, class:'icon'), order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post %>
+                  <%= link_to image_tag("plus.png", border: 0, class:'icon'), order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id, pharmacy_id: params[:pharmacy_id] }), method: :post, remote: true %>
                 <% end %>
                 </h2>
               </div>
