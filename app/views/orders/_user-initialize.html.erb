@@ -8,7 +8,7 @@
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
       <%end%>
       <div class="cart-card-infos">
-        <h2><%=ordered_drug.drug.name%></h2>
+        <h2><%=ordered_drug.drug.name.downcase.capitalize%></h2>
         <div class=cart-card-bottom>
           <%= link_to minus_ordered_drug_path(ordered_drug) do %>
             <%= image_tag "moins.png" %>

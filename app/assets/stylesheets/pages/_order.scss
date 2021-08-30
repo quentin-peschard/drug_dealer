@@ -34,9 +34,10 @@
 }
 
 .cart-card h6 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #00B8F5;
+  padding-left: 10px;
 }
 
 .cart-card-infos {
@@ -46,12 +47,12 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
 .cart-card-bottom {
   display: flex;
-  width: 50px;
   justify-content: space-between;
   align-items: center;
   img {

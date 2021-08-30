@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @lastorder = Order.where(user: current_user).last
-    @ordered_drugs = @order.ordered_drugs
+    @ordered_drugs = @order.ordered_drugs.includes(:drug).order('drugs.name asc')
     authorize @order
   end
 
