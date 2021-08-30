@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
     @order.pharmacy = @pharmacy
     @order.user = current_user
     authorize @order
+
     if @order.save
       redirect_to drugs_path(pharmacy_id: @pharmacy.id)
     else
