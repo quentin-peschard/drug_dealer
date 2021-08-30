@@ -9,12 +9,12 @@
     <% if @lastorder %>
       <% if @lastorder.status == 'initialized' || @lastorder.status == 'pending' || @lastorder.status == 'ready' %>
         <%= link_to order_path(@lastorder), class: "footer-btn" do %>
-          <div class="cart"><%= image_tag "shopping-cart.png" %></div>
-          <%# if @order %>
-            <% unless current_user.orders.last.quantity.zero? %>
-              <div class="total"> <%= current_user.orders.last.quantity %> </div>
-            <% end %>
-          <%# end %>
+          <div class="action-bar">
+            <div class="cart"><%= image_tag "shopping-cart.png" %></div>
+              <% unless current_user.orders.last.quantity.zero? %>
+                <div class="total"> <%= current_user.orders.last.quantity %> </div>
+              <% end %>
+          </div>
         <% end %>
       <% end %>
       <% else %>
@@ -24,6 +24,15 @@
     <% end %>
     <%= link_to orders_path, class: "footer-btn" do %>
       <%= image_tag "dashboard.png" %>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, :method => :delete, class: "footer-btn" do %>
+        <%= image_tag "user.png" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_session_path, class: "footer-btn" do %>
+        <%= image_tag "user.png" %>
+      <% end %>
     <% end %>
   </div>
 </div>
