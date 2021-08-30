@@ -43,6 +43,14 @@ class OrdersController < ApplicationController
     redirect_to order_path
   end
 
+  def destroy_prescription
+    @order = Order.find(params[:id])
+    @prescription = @order.prescriptions.find(params[:prescription])
+    @prescription.purge
+    authorize @order
+    redirect_to order_path(@order)
+  end
+
   def show
     @order = Order.find(params[:id])
     @lastorder = Order.where(user: current_user).last

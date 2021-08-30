@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/orders/:id/pending', to: 'orders#pendingStatus', as: 'pending_status'
   get '/orders/:id/complete', to: 'orders#completeStatus', as: 'complete_status'
   resources :orders, only: [:index, :edit, :update, :destroy, :create, :show] do
+    member do
+      patch :destroy_prescription
+    end
     resources :ordered_drugs, only: [:index, :edit, :update, :new, :create]
   end
 
