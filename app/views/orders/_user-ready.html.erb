@@ -8,10 +8,9 @@
         <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
       <%end%>
       <div class="cart-card-infos">
-        <h2><%=ordered_drug.drug.name%></h2>
+        <h2><%=ordered_drug.drug.name.downcase.capitalize%></h2>
         <div class=cart-card-bottom>
-          <p><%= ordered_drug.quantity %></p>
-          <h6><%=ordered_drug.price%></h6>
+          <h6><small><%= ordered_drug.quantity %> x </small> <%= ordered_drug.price %> $</h6>
         </div>
       </div>
       <div class="cart-card-icons">
@@ -21,9 +20,9 @@
       </div>
     </div>
   <% end %>
-  <div class="total">
+  <div class="total-price">
     <h3>Total</h3>
-    <h2>$ <%= @ordered_drugs.price.sum %></h2>
+    <h2>$<%= @order.total_price %></h2>
   </div>
   <%= link_to complete_status_path(@order) do %>
     <button class="btn-checkout">Pay my order</button>

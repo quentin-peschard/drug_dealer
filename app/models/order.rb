@@ -14,4 +14,10 @@ class Order < ApplicationRecord
   def quantity
     ordered_drugs.pluck(:quantity).sum
   end
+
+  def total_price
+    ordered_drugs.map do |ordered_drug|
+      ordered_drug.price * ordered_drug.quantity
+    end.sum
+  end
 end
