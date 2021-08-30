@@ -25,6 +25,21 @@
   margin-top: 17px;
 }
 
+.sign-out-btn {
+  font-size: 15px;
+  color: red;
+  text-decoration: underline;
+  padding: 5px;
+  text-align: right;
+}
+
+.cart-card h6 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #00243D;
+  padding-left: 10px;
+}
+
 .cart-card-infos {
   padding: 5px 15px;
   height: 80px;
@@ -32,12 +47,12 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
 .cart-card-bottom {
   display: flex;
-  width: 50px;
   justify-content: space-between;
   align-items: center;
   img {
@@ -102,4 +117,9 @@
   color: white;
   font-weight: 400;
   font-size: 18px;
+}
+
+#ordered_drug_price {
+  border: none;
+  width: 100px;
 }

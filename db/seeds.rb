@@ -37,7 +37,7 @@ end
 puts 'Creating users...'
 
 customer = User.create({ first_name: 'Mike', last_name: 'Jones', email: 'mike@hello.com', password: '123456' })
-pharmacist = User.create({ first_name: 'Michel', last_name: 'Drucker', email: 'michel@hello.com', password: '123456' })
+pharmacist = User.create({ first_name: 'Michel', last_name: 'Drucker', email: 'michel@hello.com', password: '123456', admin: true })
 pharmacy = Pharmacy.create({ name: 'Pharmacie du Wagon',
                              address: '14 villa Gaudelet, 75011 Paris',
                              user: pharmacist,

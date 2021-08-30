@@ -16,7 +16,7 @@ class OrderedDrugsController < ApplicationController
   end
 
   def update
-    @ordered_drug = OrderedDrug.find(params[:ordered_drug][:id].to_i)
+    @ordered_drug = OrderedDrug.find(params[:id])
     authorize @ordered_drug
     @ordered_drug.update(ordered_drug_params)
     redirect_back(fallback_location: root_path)
@@ -25,7 +25,6 @@ class OrderedDrugsController < ApplicationController
   def create
     @ordered_drug = OrderedDrug.new(drug: Drug.find(params[:drug_id]), order: Order.find(params[:order_id]))
     authorize @ordered_drug
-
     if @ordered_drug.save!
       redirect_to drugs_path(params: { pharmacy_id: params[:pharmacy_id] })
     else
