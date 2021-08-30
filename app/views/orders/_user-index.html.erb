@@ -1,5 +1,4 @@
 <div class="view">
-  <%= link_to "Sign out", destroy_user_session_path(@user), method: :delete, class: 'sign-out-btn' %>
   <h1>My Dashboard</h1>
   <% @orders.each do |order| %>
     <div class="dashboard-card">
