@@ -25,8 +25,9 @@ class OrderedDrugsController < ApplicationController
   def create
     @ordered_drug = OrderedDrug.new(drug: Drug.find(params[:drug_id]), order: Order.find(params[:order_id]))
     authorize @ordered_drug
+
     if @ordered_drug.save!
-      redirect_to drugs_path(params: { pharmacy_id: params[:pharmacy_id] })
+      redirect_to drugs_path(anchor: "#drug_#{@ordered_drug.drug.id}", params: { pharmacy_id: params[:pharmacy_id] })
     else
       render :new
     end
@@ -37,7 +38,7 @@ class OrderedDrugsController < ApplicationController
 
     authorize @ordered_drug
     @ordered_drug.destroy
-    redirect_to order_path(@ordered_drug.order, anchor: "ordered_wrap")
+    redirect_to order_path(@ordered_drug.order, anchor: 'ordered_wrap')
   end
 
   def plus

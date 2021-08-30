@@ -29,6 +29,7 @@ class OrdersController < ApplicationController
     @order.pharmacy = @pharmacy
     @order.user = current_user
     authorize @order
+
     if @order.save
       redirect_to drugs_path(pharmacy_id: @pharmacy.id)
     else
@@ -41,6 +42,14 @@ class OrdersController < ApplicationController
     authorize @order
     @order.destroy
     redirect_to orders_path
+  end
+
+  def destroy_prescription
+    @order = Order.find(params[:id])
+    @prescription = @order.prescriptions.find(params[:prescription])
+    @prescription.purge
+    authorize @order
+    redirect_to order_path(@order)
   end
 
   def show
@@ -80,6 +89,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :total, :pharmacy_id, :status, :accepted, :prescription)
+    params.require(:order).permit(:user_id, :total, :pharmacy_id, :status, :accepted, prescriptions: [])
   end
 end

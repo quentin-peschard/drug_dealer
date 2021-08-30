@@ -49,6 +49,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  width: 145px;
 }
 
 .cart-card-bottom {
@@ -92,7 +93,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 20px;
+  padding: 0 0 0 20px;
   height: 80px;
   a {
     height: 30px;

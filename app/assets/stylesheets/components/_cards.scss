@@ -1,0 +1,42 @@
+ .main{
+    display: flex;
+    justify-content: space-between;
+  }
+  .main2 {
+    display: flex;
+  }
+  .card-prescription {
+    width: 70px;
+    height: 70px;
+    margin: 0px 10px;
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px 0px rgba(82, 82, 82, 0.75);
+    transition: all 150ms ease-in-out;
+  }
+
+  .order_prescriptions > label {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  margin: 0;
+  }
+
+  .btn {
+  width: 100%;
+  margin: 0;
+  border-radius: 32px;
+  border: none;
+  padding: 10px;
+  background-color: #09BC8A;
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  }

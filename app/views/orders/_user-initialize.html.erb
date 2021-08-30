@@ -2,8 +2,22 @@
   <div class="pharmacy-show-top">
     <%= link_to "< Continue shopping", drugs_path, class:"button-pharma-index"%>
   </div>
-  <div class="cart-div">
+    <div class="main">
     <h1>Cart</h1>
+      <%= simple_form_for(order) do |f|%>
+        <%= f.input :prescriptions, as: :file, input_html: { multiple: true, class:'d-none'}  %>
+        <%= f.submit "Submit", class:'btn'%>
+      <% end %>
+  </div>
+  <div class=main2>
+      <% if order.prescriptions.attached?%>
+        <%@order.prescriptions.each do |prescription|%>
+          <%= link_to destroy_prescription_order_path(order, prescription: prescription), method: :patch, remote: true do%>
+            <%= cl_image_tag prescription.key, class: 'card-prescription' %>
+          <%end%>
+        <%end%>
+      <%end%>
+  </div>
     <% @ordered_drugs.each do |ordered_drug| %>
       <div class="cart-card">
         <% if ordered_drug.drug.pic.attached?%>
@@ -39,6 +53,7 @@
   <%= link_to order_ordered_drug_path(order_id: @order.id), method:'POST' do %>
     <button class="btn-ghost">Add Prescription</button>
   <%end%>
+
   <%= link_to pending_status_path(@order) do %>
     <button class="btn-checkout">Validate shopping cart</button>
   <% end %>

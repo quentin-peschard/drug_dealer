@@ -26,4 +26,7 @@ class OrderPolicy < ApplicationPolicy
   def completeStatus?
     true
   end
+  def destroy_prescription?
+    true
+  end
 end
