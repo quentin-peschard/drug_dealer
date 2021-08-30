@@ -2,17 +2,27 @@
   <div class="pharmacy-show-top">
     <%= link_to "< Continue shopping", drugs_path, class:"button-pharma-index"%>
   </div>
-    <div class="main">
     <h1>Cart</h1>
+    <div class="main">
       <%= simple_form_for(order) do |f|%>
-        <%= f.input :prescriptions, as: :file, input_html: { multiple: true, class:'d-none'}  %>
-        <%= f.submit "Submit", class:'btn'%>
+        <%= f.input :prescriptions, as: :file, input_html: { multiple: true, class:'d-none'}, label: "Add my prescription" %>
+        <%= f.submit "Go", class:'btn-prescription' %>
       <% end %>
   </div>
   <div class=main2>
       <% if order.prescriptions.attached?%>
-        <%@order.prescriptions.each do |prescription|%>
-          <%= cl_image_tag prescription.key, class: 'card-prescription' %>
+        <%@order.prescriptions.each do |prescription| %>
+          <div class="cart-card">
+            <%= cl_image_tag prescription.key %>
+            <div class="cart-card-infos">
+              <h2>Your prescription</h2>
+            </div>
+            <div class="cart-card-icons">
+              <%= link_to method: :delete do %>
+                <%= image_tag "trash.png" %>
+              <% end %>
+            </div>
+          </div>
         <%end%>
       <%end%>
   </div>
