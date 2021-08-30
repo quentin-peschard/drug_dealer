@@ -12,7 +12,7 @@
     </div>
     <div class="glow <%= 'active' if @lastorder && current_page?(order_path(@lastorder)) %>">
       <% if @lastorder %>
-        <% if @lastorder.status == 'initialized' || @lastorder.status == 'pending' || @lastorder.status == 'ready' %>
+        <% if @lastorder.status == 'initialized' || @lastorder.status == 'pending' || @lastorder.status == 'ready' || @lastorder.status == 'complete' %>
           <%= link_to order_path(@lastorder), class: "footer-btn" do %>
             <div class="action-bar">
               <div class="cart"><%= image_tag "shopping-cart.png" %></div>
