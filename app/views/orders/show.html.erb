@@ -1,5 +1,5 @@
 <% if !current_user.admin? && @order.status == 'initialized' %>
-  <%= render 'orders/user-initialize' %>
+  <%= render 'orders/user-initialize', order: @order, ordered_drugs: @ordered_drugs %>
 <% elsif !current_user.admin? && @order.status == 'pending' %>
   <%= render 'orders/user-pending' %>
 <% elsif !current_user.admin? && @order.status == 'ready' %>

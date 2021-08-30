@@ -80,6 +80,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :total, :pharmacy_id, :status, :accepted, :prescription)
+    params.require(:order).permit(:user_id, :total, :pharmacy_id, :status, :accepted, prescriptions: [])
   end
 end
