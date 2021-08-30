@@ -25,5 +25,14 @@
     <%= link_to orders_path, class: "footer-btn" do %>
       <%= image_tag "dashboard.png" %>
     <% end %>
+    <% if user_signed_in? %>
+      <%= link_to destroy_user_session_path, :method => :delete, class: "footer-btn" do %>
+        <%= image_tag "user.png" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_session_path, class: "footer-btn" do %>
+        <%= image_tag "user.png" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
