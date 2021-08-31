@@ -1,36 +1,43 @@
 <div class="home-view">
+  <div class="sigle">
     <div class="home-top">
-      <h1>Drug<br/>Dealer</h1>
-      <%= image_tag "logo.png", style: 'height:120px;width:120px' %>
+      <h1>Drug<br/><strong>Dealer</strong></h1>
+      <%= image_tag "logo.png", style: 'height:50px;width:50px' %>
+    </div>
+    <div class="view sub-title">
+      <h3>Focus on <strong>what matters</strong> while we do the rest</h2>
+    </div>
+
+    <div class="banner">
+      <div id="banner-search-bar">
+        <%= form_tag pharmacies_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            id: "address-input",
+            placeholder: "Enter your location"
+          %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="view sub-title">
-    <h3>Focus on what matters while we do the rest</h2>
+  <div>
+  <h4>Advantages<br><strong>Best website for medication<strong></h4>
   </div>
-
-  <div class="banner">
-    <div id="banner-search-bar">
-      <%= form_tag pharmacies_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          id: "address-input",
-          placeholder: "Enter your location"
-        %>
-        <%= submit_tag "Search", class: "search-button" %>
-      <% end %>
-      <div class="cards">
+  <div class="cards">
     <div class="card card-1">
       <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <img src="https://img.icons8.com/ios/100/000000/map--v2.png"/>
       <h2 class="card__title">Choose your pharmacies in Paris</h2>
     </div>
     <div class="card card-2">
       <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <img src="https://img.icons8.com/pastel-glyph/128/000000/facebook-like--v2.png"/>
       <h2 class="card__title">Take advantage of your pharmacist's advice</h2>
     </div>
     <div class="card card-3">
       <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <img src="https://img.icons8.com/ios/100/000000/globe--v2.png"/>
       <h2 class="card__title">Schedule delivery for yourself or a loved one and save time</h2>
     </div>
   </div>
-    </div>
 </div>
