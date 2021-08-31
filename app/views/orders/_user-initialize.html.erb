@@ -1,7 +1,6 @@
 <div class="view">
   <div class="pharmacy-show-top">
     <%= link_to "< Continue shopping", drugs_path, class:"button-pharma-index"%>
-  </div>
     <h1>Cart</h1>
     <div class="main">
       <%= simple_form_for(order) do |f|%>
@@ -80,4 +79,3 @@
       <button class="btn-checkout">Validate shopping cart</button>
     <% end %>
 </div>
-
