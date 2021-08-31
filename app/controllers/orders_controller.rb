@@ -18,9 +18,9 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+    authorize @order
     @order.update(order_params)
     redirect_to order_path(@order)
-    authorize @order
   end
 
   def create
@@ -89,6 +89,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:user_id, :total, :pharmacy_id, :status, :accepted, prescriptions: [])
+    params.require(:order).permit(abyme_attributes, :user_id, :total, :pharmacy_id, :status, :accepted, prescriptions: [])
   end
 end

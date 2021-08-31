@@ -1,0 +1,9 @@
+<%# Partial for ordered_drug fields %>
+
+<%= f.association :drug %>
+<%= f.input :quantity %>
+<%= f.input :price %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+
+<%= f.hidden_field :_destroy %>
+<%= remove_associated_record content: "Remove ordered_drug" %>
