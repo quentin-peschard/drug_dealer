@@ -46,7 +46,11 @@ class OrderedDrugsController < ApplicationController
     authorize @ordered_drug
     @ordered_drug.quantity += 1
     @ordered_drug.save
-    redirect_to order_path(@ordered_drug.order)
+    respond_to do |format|
+      format.html { redirect_to order_path(@ordered_drug.order)}
+      format.json { render json: {quantity: @ordered_drug.quantity } }
+    end
+
   end
 
   def minus
@@ -54,7 +58,10 @@ class OrderedDrugsController < ApplicationController
     authorize @ordered_drug
     @ordered_drug.quantity -= 1 if @ordered_drug.quantity >= 1
     @ordered_drug.save
-    redirect_to order_path(@ordered_drug.order)
+    respond_to do |format|
+      format.html { redirect_to order_path(@ordered_drug.order)}
+      format.json { render json: {quantity: @ordered_drug.quantity } }
+    end
   end
 
   private
