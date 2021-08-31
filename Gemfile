@@ -33,6 +33,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'geocoder'
 gem 'devise'
 gem 'abyme'
+gem 'twilio-ruby', '~> 5.58.1'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
