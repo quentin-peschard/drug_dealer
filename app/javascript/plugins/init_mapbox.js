@@ -10,13 +10,28 @@ const buildMap = (mapElement) => {
   });
 };
 
+// .setPopup(popup)
+
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
-    const popup = new mapboxgl.Popup().setHTML(marker.info_window);
-    new mapboxgl.Marker()
+    // const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+    const element = document.createElement('div');
+    element.id = marker.id;
+    element.className = "marker";
+    const markerElement = new mapboxgl.Marker(element)
       .setLngLat([marker.lng, marker.lat])
-      .setPopup(popup)
       .addTo(map);
+    markerElement.getElement().addEventListener('click', (event) => {
+      document.querySelectorAll('.marker').forEach((marker) => {
+        marker.classList.remove("active");
+      });
+      event.currentTarget.classList.add('active');
+      if (swiper) {
+        const slider = document.getElementById(`pharmacy_${event.currentTarget.id}`)
+        const slideIndex = slider.dataset.swiperSlideIndex;
+        swiper.slideTo(slideIndex, 400)
+      }
+    });
   });
 };
 
