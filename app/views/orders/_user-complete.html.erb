@@ -10,6 +10,15 @@
 
 <div class="pending-view">
   <h1>Cart</h1>
+  <div class="main">
+    <% if @order.prescriptions.attached? %>
+      <% @order.prescriptions.each do |prescription| %>
+        <div class=main2>
+          <%= cl_image_tag prescription.key, class: 'card-prescription' %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   <% @ordered_drugs.each do |ordered_drug| %>
     <div class="cart-card">
       <% if ordered_drug.drug.pic.attached?%>
