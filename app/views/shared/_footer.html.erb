@@ -1,12 +1,17 @@
 <div class="footer">
   <div class="glow <%= 'active' if current_page?(root_path) %>">
     <%= link_to root_path, class: "footer-btn" do %>
-      <%= image_tag "home.png" %>
+      <i class="fas fa-home <%= 'btn-active' if current_page?(root_path) %>"></i>
     <% end %>
   </div>
   <div class="glow <%= 'active' if current_page?(pharmacies_path) %>">
     <%= link_to pharmacies_path, class: "footer-btn" do %>
-      <%= image_tag "map.png" %>
+      <i class="far fa-map <%= 'btn-active' if current_page?(pharmacies_path) %>"></i>
+    <% end %>
+  </div>
+  <div class="glow <%= 'active' if current_page?(orders_path) %>">
+    <%= link_to orders_path, class: "footer-btn" do %>
+      <i class="fas fa-tachometer-alt <%= 'btn-active' if current_page?(orders_path) %>"></i>
     <% end %>
   </div>
   <div class="glow <%= 'active' if @lastorder && current_page?(order_path(@lastorder)) %>">
@@ -14,7 +19,7 @@
       <% if @lastorder.status == 'initialized' || @lastorder.status == 'pending' || @lastorder.status == 'ready' || @lastorder.status == 'complete' %>
         <%= link_to order_path(@lastorder), class: "footer-btn" do %>
           <div class="action-bar">
-            <div class="cart"><%= image_tag "shopping-cart.png" %></div>
+            <div class="cart"><i class="fas fa-shopping-cart <%= 'btn-active' if @lastorder && current_page?(order_path(@lastorder)) %>"></i></div>
               <% if current_user.orders.last.status == 'initialized' %>
                 <% unless current_user.orders.last.quantity.zero? %>
                   <div class="total"> <%= current_user.orders.last.quantity %> </div>
@@ -25,23 +30,18 @@
       <% end %>
       <% else %>
         <%= link_to root_path, class: "footer-btn" do %>
-          <%= image_tag "shopping-cart.png" %>
+          <i class="fas fa-shopping-cart <%= 'btn-active' if @lastorder && current_page?(order_path(@lastorder)) %>"></i>
         <% end %>
-    <% end %>
-  </div>
-  <div class="glow <%= 'active' if current_page?(orders_path) %>">
-    <%= link_to orders_path, class: "footer-btn" do %>
-      <%= image_tag "dashboard.png" %>
     <% end %>
   </div>
   <div class="glow <%= 'active' if current_page?(user_session_path) %>">
     <% if user_signed_in? %>
       <%= link_to destroy_user_session_path, :method => :delete, class: "footer-btn" do %>
-        <%= image_tag "user.png" %>
+        <i class="fas fa-user <%= 'btn-active' if current_page?(user_session_path) %>"></i>
       <% end %>
     <% else %>
       <%= link_to user_session_path, class: "footer-btn" do %>
-        <%= image_tag "user.png" %>
+        <i class="fas fa-user <%= 'btn-active' if current_page?(user_session_path) %>"></i>
       <% end %>
     <% end %>
   </div>

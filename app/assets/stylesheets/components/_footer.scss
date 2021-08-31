@@ -1,10 +1,9 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  background-color: rgba(255,255,255, 0.5);
-  border-radius: 25px 25px 0 0;
+  background-color: rgb(245, 245, 245);
   position: fixed;
-  padding: 5px 20px;
+  padding: auto 20px;
   bottom: 0;
   left: 0;
   opacity: 1;
@@ -50,11 +49,22 @@
 }
 
 .glow {
-  padding: 10px;
+  padding: 15px;
 }
 
 .glow.active {
-  background-color: rgb(225,225,225);
-  border-radius: 50%;
-  padding: 10px;
+  background-color: rgb(4,184,244);
+  padding: 15px;
+}
+
+.far, .fas {
+  color: black;
+}
+
+.fa-map, .fa-home, .fa-shopping-cart, .fa-tachometer-alt, .fa-user {
+  font-size: 25px;
+}
+
+.btn-active {
+  color: rgb(245, 245, 245);
 }
