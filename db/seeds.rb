@@ -24,7 +24,7 @@ puts 'Getting Data...'
 
 data.each do |drug|
   new_drug = Drug.create!(name: drug['name'],
-               description: drug['description'],
+               age: drug['age'],
                prescribed: false)
   if drug['pic']
     file = URI.open(drug['pic'])
