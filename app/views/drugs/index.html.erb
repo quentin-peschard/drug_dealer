@@ -32,10 +32,7 @@
             <% if OrderedDrug.find_by(drug: drug, order: current_user.orders.last) %>
               <%= image_tag("cocher.png", border: 0, class:'icon') %>
             <% else %>
-              <%= link_to order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id, pharmacy_id: params[:pharmacy_id] }),
-                                                                             data: {list_target: 'card', action: "click->list#addDrug"},
-                                                                             method: :post, remote: true do %>
-
+              <%= link_to order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post do %>
                 <%= image_tag("plus.png", border: 0, class:'icon') %>
               <% end %>
             <% end %>

@@ -25,7 +25,6 @@ class OrderedDrugsController < ApplicationController
   def create
     @ordered_drug = OrderedDrug.new(drug: Drug.find(params[:drug_id]), order: Order.find(params[:order_id]), user: current_user)
     authorize @ordered_drug
-
     if @ordered_drug.save!
       redirect_to drugs_path(params: { pharmacy_id: params[:pharmacy_id] })
     else

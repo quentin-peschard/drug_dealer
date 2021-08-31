@@ -63,6 +63,9 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     authorize @order
     @order.status = "ready"
+
+    TwilioClient.new(@order.user, "Hi Mike, get ready for your drug delivery. Your order is ready for payment. - Drug Dealer").send
+
     if @order.save!
       redirect_to orders_path
     end
