@@ -5,14 +5,14 @@
     <div class="swiper-wrapper">
       <!-- Slides -->
       <% @pharmacies.each do |pharmacy| %>
-        <%= link_to orders_path(pharmacy_id: pharmacy.id), method: 'POST' do %>
           <div class="swiper-slide" id="pharmacy_<%= pharmacy.id %>">
-            <div class="pharmacy-card-slider">
+          <div class="pharmacy-card-slider">
+            <%= link_to orders_path(pharmacy_id: pharmacy.id), method: 'POST' do %>
               <h2><%= pharmacy.name %></h2>
               <p><%= pharmacy.address %></p>
-            </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       <% end %>
     </div>
   </div>
