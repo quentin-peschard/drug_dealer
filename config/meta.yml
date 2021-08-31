@@ -1,0 +1,5 @@
+meta_product_name: "DrugDealer"
+meta_title: "DrugDealer - Your pharmaceutical marketplace"
+meta_description: "A medication delivery service"
+meta_image: "medicine_photo.jpeg" # should exist in `app/assets/images/`
+twitter_account: "@drugdealer"   # required for Twitter Cards
