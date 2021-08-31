@@ -1,37 +1,39 @@
-.pharmacy-view {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: center;
-  background-color: white;
-  z-index: 0;
-  padding: 0 10px;
-  margin: 95px 10px 10px 10px;
-}
-
 .pharmacy-view h1 {
-  padding: 20px 20px 40px 20px;
-  margin-bottom: -25px;
-  border-radius: 20px 20px 0 0;
-  color: white;
   font-weight: bold;
   background-color: #00243D;
   z-index: 1;
 }
 
 .pharmacy-view #map {
-  width: 89vw;
-  height: 300px;
-  border-radius: 20px 20px 0 0;
-  margin-bottom: -10px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: relative;
+}
+.swiper {
   z-index: 2;
+  width: 90vw;
+  height: 150px;
+  position: absolute;
+  bottom: 90px;
+  .swiper-slide {
+    background-color: white;
+    padding: 20px;
+    width: 80vw;
+  }
+}
+
+.marker {
+  background-image: asset-url('marker.png');
+  width: 27px;
+  height: 41px;
+  background-size: cover;
+  cursor: pointer;
+  &.active {
+    filter: hue-rotate(300deg);
+  }
 }
 
 .pharmacy-view a:hover {
   text-decoration: none;
-}
-
-canvas.mapboxgl-canvas {
-  height: -webkit-fill-available !important;
-  width: -webkit-fill-available !important;
 }
