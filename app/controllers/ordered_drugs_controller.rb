@@ -27,7 +27,7 @@ class OrderedDrugsController < ApplicationController
     authorize @ordered_drug
 
     if @ordered_drug.save!
-      redirect_to drugs_path(anchor: "#drug_#{@ordered_drug.drug.id}", params: { pharmacy_id: params[:pharmacy_id] })
+      redirect_to drugs_path(params: { pharmacy_id: params[:pharmacy_id] })
     else
       render :new
     end
@@ -47,10 +47,9 @@ class OrderedDrugsController < ApplicationController
     @ordered_drug.quantity += 1
     @ordered_drug.save
     respond_to do |format|
-      format.html { redirect_to order_path(@ordered_drug.order)}
-      format.json { render json: {quantity: @ordered_drug.quantity } }
+      format.html { redirect_to order_path(@ordered_drug.order) }
+      format.json { render json: { quantity: @ordered_drug.quantity } }
     end
-
   end
 
   def minus
