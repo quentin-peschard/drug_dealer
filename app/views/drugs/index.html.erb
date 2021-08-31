@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="view">
+  <div class="view" data-controller="list">
     <div class="pharma-title">
       <h2><%= @pharmacy.name  %></h2>
     </div>
@@ -16,7 +16,32 @@
     <% end %>
     <div class="two-columns-cards">
       <% @drugs.each do |drug| %>
-        <%= render 'drug_card', drug: drug %>
+        <div class="card-drug" >
+          <div class="topcard">
+            <% if drug.pic.attached?%>
+              <%=cl_image_tag drug.pic.key%>
+            <%else%>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <%end%>
+          </div>
+          <div class="card-drug-infos">
+            <div >
+              <h2><%= drug.formated_name %></h2>
+            </div>
+            <h2 class="card-drug-plus">
+            <% if OrderedDrug.find_by(drug: drug, order: current_user.orders.last) %>
+              <%= image_tag("cocher.png", border: 0, class:'icon') %>
+            <% else %>
+              <%= link_to order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id, pharmacy_id: params[:pharmacy_id] }),
+                                                                             data: {list_target: 'card', action: "click->list#addDrug"},
+                                                                             method: :post, remote: true do %>
+
+                <%= image_tag("plus.png", border: 0, class:'icon') %>
+              <% end %>
+            <% end %>
+            </h2>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

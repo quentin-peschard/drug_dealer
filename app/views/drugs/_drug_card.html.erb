@@ -1,4 +1,4 @@
-<div class="card-drug" id="<%= dom_id(drug) %>">
+<div class="card-drug" >
   <div class="topcard">
     <% if drug.pic.attached?%>
       <%=cl_image_tag drug.pic.key%>
@@ -15,7 +15,7 @@
       <%= image_tag("cocher.png", border: 0, class:'icon') %>
     <% else %>
       <%= link_to order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id, pharmacy_id: params[:pharmacy_id] }),
-                  method: :post, remote: true do %>
+                  method: :post, data: {list_target: 'card', action: "click->list#addDrug"} do %>
 
         <%= image_tag("plus.png", border: 0, class:'icon') %>
       <% end %>

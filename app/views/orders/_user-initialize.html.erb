@@ -1,13 +1,13 @@
-<div class="view">
+<div class="view" data-controller="cart">
   <div class="pharmacy-show-top">
     <%= link_to "< Continue shopping", drugs_path, class:"button-pharma-index"%>
     <h1>Cart</h1>
     <div class="main">
-      <%= simple_form_for(order) do |f|%>
+      <%= simple_form_for(@order) do |f|%>
         <%= f.input :prescriptions, as: :file, input_html: { multiple: true, class:'d-none'}, label: "Add my prescription" %>
         <%= f.submit "Go", class:'btn-prescription' %>
       <% end %>
-      <% if order.prescriptions.attached? %>
+      <% if @order.prescriptions.attached? %>
         <% @order.prescriptions.each do |prescription| %>
           <div class=main2>
             <%= cl_image_tag prescription.key, class: 'card-prescription' %>
@@ -58,11 +58,11 @@
         <div class="cart-card-infos">
           <h2><%=ordered_drug.drug.name.downcase.capitalize%></h2>
           <div class=cart-card-bottom>
-            <%= link_to minus_ordered_drug_path(ordered_drug) do %>
+            <%= link_to minus_ordered_drug_path(ordered_drug), data: {action: "click->cart#updateCart", drug_quantity: "#cart-quantity-#{ordered_drug.id}"} do %>
               <%= image_tag "moins.png" %>
             <% end %>
-            <p><%= ordered_drug.quantity %></p>
-            <%= link_to plus_ordered_drug_path(ordered_drug) do %>
+            <p id="cart-quantity-<%= ordered_drug.id %>"><%= ordered_drug.quantity %></p>
+            <%= link_to plus_ordered_drug_path(ordered_drug), data: {action: "click->cart#updateCart", drug_quantity: "#cart-quantity-#{ordered_drug.id}"} do %>
               <%= image_tag "plus.png" %>
             <% end %>
           </div>
