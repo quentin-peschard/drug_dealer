@@ -3,7 +3,7 @@
   justify-content: space-between;
   background-color: rgb(245, 245, 245);
   position: fixed;
-  padding: auto 20px;
+  padding: auto;
   bottom: 0;
   left: 0;
   opacity: 1;
@@ -49,12 +49,12 @@
 }
 
 .glow {
-  padding: 15px;
+  padding: 15px 20px;
 }
 
 .glow.active {
   background-color: rgb(4,184,244);
-  padding: 15px;
+  padding: 15px 20px;
 }
 
 .far, .fas {
