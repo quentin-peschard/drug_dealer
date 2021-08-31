@@ -18,32 +18,12 @@
       </div>
     </div>
   <% end %>
-  <%= link_to order_path do %>
-    <button class="btn-prescription-treatment">Click to add prescription meds</button>
-  <% end %>
-  <!-- Modal prescription process -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Click to treat the prescription
-  </button>
 
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          coucou
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end Modal -->
+
+    <%= simple_form_for @order do |f| %>
+      <%= f.association :drug, collection: @drugs %>
+      <%= f.submit %>
+    <% end %>
 
   <%= link_to ready_status_path(@order) do %>
     <button class="btn-checkout">Send invoice to customer</button>
