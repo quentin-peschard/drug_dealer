@@ -27,10 +27,14 @@
                 </div>
                 <div class="modal-body">
                   <%= cl_image_tag prescription.key, style: 'width: 100%;' %>
-                      <%= simple_form_for @order do |f| %>
-                        <%= f.association :drug, collection: @drugs %>
-                        <%= f.submit %>
+                     <%= simple_form_for @order do |f| %>
+                      <%= f.abyme_for(:ordered_drugs, button_text: "Add drug") do |abyme| %>
+                        <%= abyme.records(collection: @order.ordered_drugs.where(user: current_user)) %>
+                        <%= abyme.new_records %>
+                        <%= add_associated_record %>
                       <% end %>
+                        <%= f.submit %>
+                    <% end %>
                 </div>
               </div>
             </div>

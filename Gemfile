@@ -32,6 +32,7 @@ gem 'pg_search', '~> 2.3.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'geocoder'
 gem 'devise'
+gem 'abyme'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
