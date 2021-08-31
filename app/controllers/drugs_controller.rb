@@ -7,7 +7,7 @@ class DrugsController < ApplicationController
     @pharmacy = @lastorder.pharmacy
 
     if params.dig(:query).present?
-      @drugs = @drugs.search_by_name_and_description(params[:query])
+      @drugs = @drugs.search_by_name(params[:query])
     end
   end
 

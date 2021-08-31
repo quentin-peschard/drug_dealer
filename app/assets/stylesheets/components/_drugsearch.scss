@@ -5,8 +5,12 @@
 
 .searchadrug {
   border-radius: 30px;
-  width: 70vw;
+  width: 80vw;
   padding-top: 7px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  color: #B4B4B4;
+  font-size: 14px;
 }
 
 .drug-search-bard-button {
@@ -16,12 +20,13 @@
   text-decoration: none;
   text-align: center;
   border: none;
-  background: #00B8F5;
+  background: transparent;
   width: 1vw;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  transform: rotate(112deg);
+  transform: rotate(208deg);
   margin-left: 10px;
+  color: #00B8F5;
 }
