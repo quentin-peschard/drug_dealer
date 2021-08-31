@@ -27,6 +27,10 @@
                 </div>
                 <div class="modal-body">
                   <%= cl_image_tag prescription.key, style: 'width: 100%;' %>
+                      <%= simple_form_for @order do |f| %>
+                        <%= f.association :drug, collection: @drugs %>
+                        <%= f.submit %>
+                      <% end %>
                 </div>
               </div>
             </div>
@@ -53,6 +57,7 @@
       </div>
     </div>
   <% end %>
+
   <%= link_to ready_status_path(@order) do %>
     <button class="btn-checkout">Send invoice to customer</button>
   <% end %>
