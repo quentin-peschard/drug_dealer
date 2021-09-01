@@ -1,33 +1,48 @@
-<div class="container">
-  <div class="view" data-controller="list">
-    <div class="pharma-header">
-      <h2><%= @pharmacy.name%></h2>
-      <p><%= @pharmacy.address%></p>
-    </div>
-    <%= form_tag drugs_path, method: :get, class: "drug-index-search" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control searchadrug",
-        placeholder: "Enter a drug's name"
-      %>
-
-      <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
-      <%= submit_tag "☌", class: "drug-search-bard-button" %>
-
-    <% end %>
-
-    <% @drugs.each do |drug| %>
-      <div class="card-product-drug">
-        <% if drug.pic.attached?%>
-          <%=cl_image_tag drug.pic.key%>
-        <%else%>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <%end%>
-        <div class="card-product-drug-infos">
-          <h2><%= drug.formated_name %></h2>
-          <p><%= "+#{drug.age} years" %></p>
-        </div>
+<div class="overlay hidden"></div>
+  <div class="container">
+    <div class="view" data-controller="list">
+      <div class="pharma-header">
+        <h2><%= @pharmacy.name%></h2>
+        <p><%= @pharmacy.address%></p>
       </div>
-    <% end %>
+      <%= form_tag drugs_path, method: :get, class: "drug-index-search" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control searchadrug",
+          placeholder: "Enter a drug's name"
+        %>
+
+        <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
+        <%= submit_tag "☌", class: "drug-search-bard-button" %>
+
+      <% end %>
+
+
+      <% @drugs.each do |drug| %>
+        <div class="card-container">
+          <div class="card-product">
+            <% if drug.pic.attached?%>
+              <%=cl_image_tag drug.pic.key%>
+            <%else%>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <%end%>
+            <div class="card-product-infos">
+              <h2><%= drug.formated_name %></h2>
+              <p><%= "+#{drug.age} years" %></p>
+            </div>
+          </div>
+            <div class="fixed-element hidden">
+              <div class="add-drugs-div">
+                <h2><%= drug.formated_name %></h2>
+                <p><%= "+#{drug.age} years" %></p>
+                <%= link_to order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post do %>
+                  <button class="btn-add-drug">Add to Order</button>
+                <% end %>
+              </div>
+            </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
