@@ -14,17 +14,22 @@
           <%= submit_tag "☌", class: "drug-search-bard-button" %>
         <% end %>
       </div>
-
-
-        <% @drugs.each do |drug| %>
-          <div class="card-container">
-            <div class="card-product">
-              <% if drug.pic.attached?%>
-                <%=cl_image_tag drug.pic.key%>
-              <%else%>
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-              <%end%>
-              <div class="card-product-infos">
+      <% @drugs.each do |drug| %>
+        <div class="card-container">
+          <div class="card-product">
+            <% if drug.pic.attached?%>
+              <%=cl_image_tag drug.pic.key%>
+            <%else%>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <%end%>
+            <div class="card-product-infos">
+              <h2><%= drug.formated_name %></h2>
+              <p><%= "+#{drug.age} years" %></p>
+            </div>
+          </div>
+            <div class="fixed-element hidden">
+            <div class="exit-thing-div"><i class="fas fa-times exit-thing"></i></div>
+              <div class="add-drugs-div">
                 <h2><%= drug.formated_name %></h2>
                 <p><%= "+#{drug.age} years" %></p>
               </div>
