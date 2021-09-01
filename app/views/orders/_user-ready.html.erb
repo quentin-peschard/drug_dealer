@@ -36,29 +36,31 @@
       <% end %>
     <% end %>
   </div>
-  <% @ordered_drugs.each do |ordered_drug| %>
-    <div class="cart-card">
-      <% if ordered_drug.drug.pic.attached?%>
-        <%=cl_image_tag ordered_drug.drug.pic.key%>
-      <%else%>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <%end%>
-      <div class="cart-card-infos">
-        <h2><%=ordered_drug.drug.name.downcase.capitalize%></h2>
-        <div class=cart-card-bottom>
-          <h6><small><%= ordered_drug.quantity %> x </small> <%= ordered_drug.price %> $</h6>
+  <div class="cart-items">
+    <% @ordered_drugs.each do |ordered_drug| %>
+      <div class="cart-card">
+        <% if ordered_drug.drug.pic.attached?%>
+          <%=cl_image_tag ordered_drug.drug.pic.key%>
+        <%else%>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%end%>
+        <div class="cart-card-infos">
+          <h2><%=ordered_drug.drug.name.downcase.capitalize%></h2>
+          <div class=cart-card-bottom>
+            <h6><small><%= ordered_drug.quantity %> x </small> <%= ordered_drug.price %> $</h6>
+          </div>
+        </div>
+        <div class="cart-card-icons">
+          <%= link_to ordered_drug_path(ordered_drug), method: :delete do %>
+            <%= image_tag "trash.png" %>
+          <% end %>
         </div>
       </div>
-      <div class="cart-card-icons">
-        <%= link_to ordered_drug_path(ordered_drug), method: :delete do %>
-          <%= image_tag "trash.png" %>
-        <% end %>
-      </div>
+    <% end %>
+    <div class="total-price">
+      <h3>Total</h3>
+      <h2>$<%= @order.total_price %></h2>
     </div>
-  <% end %>
-  <div class="total-price">
-    <h3>Total</h3>
-    <h2>$<%= @order.total_price %></h2>
   </div>
   <%= link_to complete_status_path(@order) do %>
     <button class="btn-checkout">Pay my order</button>
