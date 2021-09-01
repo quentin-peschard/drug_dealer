@@ -9,10 +9,54 @@
       Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 
+  h1, h3 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1 {
+    font-size: 20px;
+    color: white;
+  }
+
+  h3 {
+    color: white;
+    line-height: 1.6;
+    font-size: 2.5rem;
+    font-weight: 900;
+  }
+  h3 > strong {
+    color: salmon;
+  }
+  
+  h4 {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    font-weight: revert;
+    line-height: inherit;
+    color: #636e92;
+  }
+
+  .sigle {
+    background-color: #0a617e;
+    padding: 0px 0px 90px 0px;
+  }
+
+  .sub-title {
+    background-color: #0a617e;
+    padding: 32px 42px 0px;
+  }
+
+  .value {
+    display: grid;
+    justify-content: center;
+    padding: 30px;
+  }
+
   .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0px 0px 100px 0px;
   }
   
   .card {
@@ -41,22 +85,22 @@
   .card__title {
     grid-row: 3/4;
     font-weight: 400;
-    color: #ffffff;
+    color: #636e92;
   }
 
   /* CARD BACKGROUNDS */
   
-  .card-1 {
-    background: radial-gradient(#1fe4f5, #3fbafe);
-  }
+  // .card-1 {
+  //   background: radial-gradient(#1fe4f5, #3fbafe);
+  // }
   
-  .card-2 {
-    background: radial-gradient(#60efbc, #58d5c9);
-  }
+  // .card-2 {
+  //   background: radial-gradient(#60efbc, #58d5c9);
+  // }
   
-  .card-3 {
-    background: radial-gradient(#f588d8, #c0a3e5);
-  }
+  // .card-3 {
+  //   background: radial-gradient(#f588d8, #c0a3e5);
+  // }
   
   /* RESPONSIVE */
   

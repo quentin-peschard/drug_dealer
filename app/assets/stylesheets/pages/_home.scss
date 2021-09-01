@@ -10,7 +10,7 @@
 .home-top {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   padding-top: 30px;
 }
 
@@ -45,11 +45,6 @@ border-radius: 15px;
 background-color: #D6F3FF;
 border: dodgerblue;
 margin-right: 12px;
-}
-
-.sub-title {
-  padding-top: 30px;
-  padding-left: 42px;
 }
 
 .search-button {
