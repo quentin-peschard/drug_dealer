@@ -49,23 +49,26 @@
 }
 
 .glow {
-  padding: 15px 20px;
-}
-
-.glow.active {
-  background-color: rgb(4,184,244);
-  padding: 15px 20px;
-  .letter {
-    color: black;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  &.active {
+    background-color: #0a617e;
+    .letter {
+      color: white;
+    }
   }
 }
 
+
 .far, .fas {
-  color: salmon;
+  color: black;
 }
 
 .fa-map, .fa-home, .fa-shopping-cart, .fa-tachometer-alt, .fa-user {
-  font-size: 25px;
+  font-size: 23px;
 }
 
 .btn-active {
@@ -73,6 +76,7 @@
 }
 
 .letter {
-  margin-bottom: 0;
-  color: gray;
+  color: black;
+  font-size: 11px;
+  margin: 0;
 }

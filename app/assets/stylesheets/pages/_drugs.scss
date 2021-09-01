@@ -74,10 +74,25 @@
   border-radius: 32px;
   border: none;
   padding: 10px;
-  background-color: rgb(4,184,244);
+  background-color: #0a617e;
   color: white;
   font-weight: 400;
   font-size: 18px;
+}
+
+.btn-non-add-drug {
+  width: 83%;
+  margin: 25px 32px;
+  border-radius: 32px;
+  border: none;
+  padding: 10px;
+  color: #215A6C;
+  background-color: #E6F5F5;
+  // background-color: #04b8f4;
+  // color: white;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 10px 5px;
 }
 
 .add-drugs-div {
@@ -85,90 +100,4 @@
   align-items: center;
   text-align: center;
 }
-
-
-// .two-columns-cards {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-//   grid-gap: 20px;
-//   padding-bottom: 20px;
-//   padding-top: 45px;
-// }
-
-// .card-product > img {
-//   height: 130px;
-//   width: 100%;
-//   object-fit: contain;
-//   padding-bottom: 23px;
-// }
-
-
-// .card-drug {
-//   overflow: hidden;
-//   background: white;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-//   border-radius: 15px;
-//   position: relative;
-//   height: 173px;
-// }
-
-// .topcard {
-//   height: 150px;
-//   width: 100%;
-//   background: #E2E8F2;
-// }
-
-
-
-// .card-drug h2 {
-//   font-size: 14px;
-//   font-weight: bold;
-//   margin: 0;
-// }
-
-// .card-drug p {
-//   font-size: 12px;
-//   opacity: .7;
-//   margin: 0;
-// }
-
-
-// .card-drug .card-drug-infos {
-//   padding: 16px;
-//   display: flex;
-//   align-items: flex-end;
-//   position: absolute;
-//   border-radius: 20px 20px 0 0;
-//   background-color: white;
-//   top: 111px;
-//   width: 100%;
-//   height: 62px;
-//   display: flex;
-//   align-items: center;
-// }
-
-// .card-drug .card-drug-infos p{
-//   color: grey;
-//   font-size: 10px;
-// }
-
-
-
-// .card-drug-infos .card-drug-loupe {
-//   position: absolute;
-//   right: -30px;
-//   top: 24px;
-// }
-
-// .icon {
-//   height: 13px;
-//   width: 13px;
-//   transition: 0.2s ease;
-// }
-
-// .icon:hover {
-//   height: 17px;
-//   width: 17px;
-
-// }
 

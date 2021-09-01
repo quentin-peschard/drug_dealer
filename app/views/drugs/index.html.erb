@@ -32,12 +32,22 @@
               <div class="add-drugs-div">
                 <h2><%= drug.formated_name %></h2>
                 <p><%= "+#{drug.age} years" %></p>
-                <%= link_to order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post do %>
-                  <button class="btn-add-drug">Add to Order</button>
-                <% end %>
               </div>
             </div>
-        </div>
+              <div class="fixed-element hidden">
+                <div class="add-drugs-div">
+                  <h2><%= drug.formated_name %></h2>
+                  <p><%= "+#{drug.age} years" %></p>
+                  <% unless current_user.orders.last.drugs.include?(drug) %>
+                    <%= link_to order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post do %>
+                      <button class="btn-add-drug">Add to Order</button>
+                    <% end %>
+                  <% else %>
+                    <p class="btn-non-add-drug">This drug is already in your basket </p>
+                  <% end %>
+                </div>
+              </div>
+          </div>
       <% end %>
     </div>
   </div>
