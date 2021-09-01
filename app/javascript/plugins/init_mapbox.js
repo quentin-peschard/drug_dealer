@@ -21,14 +21,21 @@ const addMarkersToMap = (map, markers) => {
     const markerElement = new mapboxgl.Marker(element)
       .setLngLat([marker.lng, marker.lat])
       .addTo(map);
+
     markerElement.getElement().addEventListener('click', (event) => {
       document.querySelectorAll('.marker').forEach((marker) => {
         marker.classList.remove("active");
       });
+
       event.currentTarget.classList.add('active');
       if (swiper) {
+
+        // document.querySelector('.swiper').addEventListener('slideChange', () => {
+        //   console.log('change')
+        // })
+
         const slider = document.getElementById(`pharmacy_${event.currentTarget.id}`)
-        const slideIndex = slider.dataset.swiperSlideIndex;
+        const slideIndex = parseInt(slider.dataset.swiperSlideIndex) + 1;
         swiper.slideTo(slideIndex, 400)
       }
     });

@@ -5,7 +5,7 @@ const initSwiper = () => {
   const swiper = new Swiper('.swiper', {
     // Optional parameters
     loop: true,
-    spaceBetween: 40,
+    spaceBetween: 10,
   });
   global.swiper = swiper;
 };
