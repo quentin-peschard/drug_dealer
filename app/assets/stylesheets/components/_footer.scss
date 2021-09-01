@@ -55,10 +55,13 @@
 .glow.active {
   background-color: rgb(4,184,244);
   padding: 15px 20px;
+  .letter {
+    color: black;
+  }
 }
 
 .far, .fas {
-  color: black;
+  color: salmon;
 }
 
 .fa-map, .fa-home, .fa-shopping-cart, .fa-tachometer-alt, .fa-user {
@@ -67,4 +70,9 @@
 
 .btn-active {
   color: rgb(245, 245, 245);
+}
+
+.letter {
+  margin-bottom: 0;
+  color: gray;
 }
