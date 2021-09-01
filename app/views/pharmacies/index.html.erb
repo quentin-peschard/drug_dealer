@@ -1,11 +1,20 @@
 <div class="pharmacy-view">
   <div id="map", data-markers="<%= @markers.to_json %>", data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div id="map-search-bar">
+      <%= form_tag pharmacies_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "address-input",
+          placeholder: "Enter your location"
+        %>
+      <% end %>
+    </div>
     <div class="swiper">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides -->
       <% @pharmacies.each do |pharmacy| %>
-          <div class="swiper-slide" id="pharmacy_<%= pharmacy.id %>">
+        <div class="swiper-slide" id="pharmacy_<%= pharmacy.id %>" data-pharmacy-id=<%= pharmacy.id %>>
           <div class="pharmacy-card-slider">
             <%= link_to orders_path(pharmacy_id: pharmacy.id), method: 'POST' do %>
               <h2><%= pharmacy.name %></h2>

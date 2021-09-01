@@ -1,4 +1,5 @@
 import mapboxgl from '!mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -21,15 +22,18 @@ const addMarkersToMap = (map, markers) => {
     const markerElement = new mapboxgl.Marker(element)
       .setLngLat([marker.lng, marker.lat])
       .addTo(map);
+
     markerElement.getElement().addEventListener('click', (event) => {
       document.querySelectorAll('.marker').forEach((marker) => {
         marker.classList.remove("active");
       });
+
       event.currentTarget.classList.add('active');
+
       if (swiper) {
         const slider = document.getElementById(`pharmacy_${event.currentTarget.id}`)
-        const slideIndex = slider.dataset.swiperSlideIndex;
-        swiper.slideTo(slideIndex, 400)
+        const slideIndex = parseInt(slider.dataset.swiperSlideIndex) + 1;
+        swiper.slideTo(slideIndex, 400, false)
       }
     });
   });

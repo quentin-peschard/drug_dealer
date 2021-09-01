@@ -1,11 +1,13 @@
-<div class="flash flash-warning alert alert-dismissible fade show" role="alert">
-  <div class="flash-content">
-    <p><strong>Hi again!</strong> Your order is being delivered as we speak! It will arrive later today ☺️</p>
-    <%= link_to "< Back to your orders", orders_path, class:"button-pharma-index"%>
+<div class="flash-wrapper">
+  <div class="flash flash-warning alert alert-dismissible fade show" role="alert">
+    <div class="flash-content">
+      <p><strong>Hi again!</strong> Your order is being delivered as we speak! It will arrive later today ☺️</p>
+      <%= link_to "< Back to your orders", orders_path, class:"button-pharma-index"%>
+    </div>
+    <a data-dismiss="alert" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </a>
   </div>
-  <a data-dismiss="alert" aria-label="Close">
-    <i class="fas fa-times"></i>
-  </a>
 </div>
 
 <div class="pending-view">

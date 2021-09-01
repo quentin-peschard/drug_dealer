@@ -9,6 +9,12 @@
   margin-top: 85px;
   opacity: 0.5;
 }
+.flash-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+}
 
 .flash {
   padding: 16px 24px;
@@ -20,8 +26,8 @@
   justify-content: space-between;
   align-items: baseline;
   background: white;
+  opacity: 0.9;
   box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  border-radius: 20px;
   margin: 10px;
 }
 

@@ -1,5 +1,3 @@
-// Specific CSS for your home-page
-
 .title {
   padding-top: 35px;
   padding-left: 30px;
@@ -25,38 +23,17 @@
   width: 100%;
   margin-top: 10px;
   padding: 5px 35px;
-}
-
-#banner-search-bar p {
-  font-family: "Nunito", "Helvetica", "sans-serif";
-  text-align: left;
-  font-size: 1.1rem;
-  margin: 0;
-}
-
-.banner form {
-  display: flex;
-}
-
-.ap-input {
-  position: relative;
-vertical-align: top;
-border-radius: 15px;
-background-color: #D6F3FF;
-border: dodgerblue;
-margin-right: 12px;
-}
-
-.search-button {
-  margin: 0;
-border-radius: 30px;
-background-color: #00B8F5;
-border: dashed;
-}
-
-.algolia-places {
-  width: 65vw;
-  margin-right: 20px;
+  .algolia-places {
+    width: 77vw;
+    margin-right: 20px;
+    .ap-input {
+      border-radius: 50px;
+      background-color: white;
+      height: 40px;
+      font-size: 15px;
+      box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.1);
+    }
+  }
 }
 
 .home-view {
