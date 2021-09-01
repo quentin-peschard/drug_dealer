@@ -1,11 +1,11 @@
 .drug-index-search {
   display: flex;
-  flex-direction: row;
+  padding: 10px 0;
 }
 
 .searchadrug {
   border-radius: 30px;
-  width: 300px;
+  width: 85vw;
   padding-top: 7px;
   font-family: 'Work Sans', sans-serif;
   font-size: 16px;
@@ -23,12 +23,13 @@
   background: transparent;
   width: 1vw;
   display: flex;
+  font-weight: bold;
   justify-content: center;
   align-items: center;
   font-size: 16px;
   transform: rotate(208deg);
   margin-left: 10px;
-  color: #00B8F5;
+  color: #0a617e;
   position: absolute;
   left: 270px;
 }
