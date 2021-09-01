@@ -1,22 +1,18 @@
-// font-family: 'Poppins', sans-serif;
-// font-family: 'Work Sans', sans-serif;
-
 .pharma-header {
-  padding-top: 15px;
-  padding-bottom: 5px;
-}
-
-.pharma-header h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 28px;
-  font-weight: bold;
-  color: #272E35;
-}
-
-.pharma-header p {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 16px;
-  color: #828282;
+  background: #0a617e;
+  width: 100vw;
+  margin: -10px -35px 5px -35px;
+  padding: 20px;
+  h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    color: white;
+  }
+  p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 17px;
+    color: white;
+  }
 }
 
 .card-product {

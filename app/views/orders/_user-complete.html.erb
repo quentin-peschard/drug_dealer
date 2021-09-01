@@ -11,7 +11,9 @@
 </div>
 
 <div class="pending-view">
-  <h1>Cart</h1>
+  <div class="cart-header">
+    <h2>My cart</h2>
+  </div>
   <div class="main">
     <% if @order.prescriptions.attached? %>
       <% @order.prescriptions.each do |prescription| %>
