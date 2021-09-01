@@ -20,7 +20,7 @@
         </div>
       <% end %>
       <div class="dashboard-card-icons">
-        <%= link_to order_path(order), method: :delete do %>
+        <%= link_to order_path(order), method: :delete, remote: true do %>
           <%= image_tag "trash.png" %>
         <% end %>
       </div>
