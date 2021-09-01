@@ -1,2 +1,57 @@
 // font-family: 'Poppins', sans-serif;
 // font-family: 'Work Sans', sans-serif;
+
+.card-product-drug {
+  overflow: hidden;
+  height: 96px;
+  width: 300px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.card-product-drug img {
+  height: 100%;
+  width: 83px;
+  object-fit: contain;
+  padding: 8px;
+  background: #F3F4F6;
+}
+
+.card-product-drug h2 {
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  line-height: 24px;
+  color: #215A6C;
+}
+
+.card-product-drug p {
+  font-size: 10px;
+  line-height: 2.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 6px;
+  color: #215A6C;
+  background-color: #E6F5F5;
+  border-radius: 30px;
+  width: 52px;
+  height: 28px;
+  padding-left: 4px;
+  padding-top: 1px;
+}
+
+.card-product-drug .card-product-drug-infos {
+  padding: 16px;
+}
+
+
+
+.card-product-drug .card-drug-plus {
+  position: absolute;
+  right: 13px;
+  top: 31px;
+}
