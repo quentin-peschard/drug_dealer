@@ -1,6 +1,9 @@
 <div class="view" data-controller="cart">
+  <div class="cart-header">
+    <h2>My cart</h2>
+    <p><%= link_to "< Continue shopping", drugs_path, class:"button-pharma-index"%></p>
+  </div>
   <div class="pharmacy-show-top">
-    <%= link_to "< Continue shopping", drugs_path, class:"button-pharma-index"%>
     <h1>Cart</h1>
     <div class="main">
       <%= simple_form_for(@order) do |f|%>
