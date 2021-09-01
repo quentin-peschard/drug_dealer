@@ -36,12 +36,31 @@
     color: #636e92;
   }
 
-  h6{
+  .advantage > h6{
     text-align: center;
     font-family: "Poppins", sans-serif;
     color: salmon;
     margin: 0;
     font-size: x-large;
+  }
+
+  hr {
+    margin: revert;
+    width: 300px;
+  }
+  a.button-up {
+    padding: 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 75px;
+	height: 75px;
+	background-color: #04b8f4;
+	background-image: linear-gradient(315deg, #04b8f4 0%, #fa8072 74%);
+	border: none;
+	border-radius: 50%;
+	transition: 200ms;
   }
 
   .sigle {
