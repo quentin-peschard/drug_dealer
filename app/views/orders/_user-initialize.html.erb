@@ -75,6 +75,13 @@
             <% end %>
           </div>
         </div>
+
+        <div class="cart-card-icons">
+          <%= link_to ordered_drug_path(ordered_drug), method: :delete, remote: true do %>
+            <%= image_tag "trash.png" %>
+          <% end %>
+        </div>
+      </div>
       <% end %>
     </div>
 
