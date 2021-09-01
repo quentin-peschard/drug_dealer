@@ -14,7 +14,7 @@
     <div class="swiper-wrapper">
       <!-- Slides -->
       <% @pharmacies.each do |pharmacy| %>
-          <div class="swiper-slide" id="pharmacy_<%= pharmacy.id %>">
+        <div class="swiper-slide" id="pharmacy_<%= pharmacy.id %>" data-pharmacy-id=<%= pharmacy.id %>>
           <div class="pharmacy-card-slider">
             <%= link_to orders_path(pharmacy_id: pharmacy.id), method: 'POST' do %>
               <h2><%= pharmacy.name %></h2>
