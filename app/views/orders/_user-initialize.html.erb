@@ -4,7 +4,6 @@
     <p><%= link_to "< Continue shopping", drugs_path, class:"button-pharma-index"%></p>
   </div>
   <div class="pharmacy-show-top">
-    <h1>Cart</h1>
     <div class="main">
       <%= simple_form_for(@order) do |f|%>
         <%= f.input :prescriptions, as: :file, input_html: { multiple: true, class:'d-none'}, label: "Add my prescription" %>
@@ -50,34 +49,35 @@
     </div>
 
 
-
-    <% @ordered_drugs.each do |ordered_drug| %>
-      <div class="cart-card">
-        <% if ordered_drug.drug.pic.attached?%>
-          <%=cl_image_tag ordered_drug.drug.pic.key %>
-        <%else%>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <%end%>
-        <div class="cart-card-infos">
-          <h2><%=ordered_drug.drug.name.downcase.capitalize%></h2>
-          <div class=cart-card-bottom>
-            <%= link_to minus_ordered_drug_path(ordered_drug), data: {action: "click->cart#updateCart", drug_quantity: "#cart-quantity-#{ordered_drug.id}"} do %>
-              <%= image_tag "moins.png" %>
-            <% end %>
-            <p id="cart-quantity-<%= ordered_drug.id %>"><%= ordered_drug.quantity %></p>
-            <%= link_to plus_ordered_drug_path(ordered_drug), data: {action: "click->cart#updateCart", drug_quantity: "#cart-quantity-#{ordered_drug.id}"} do %>
-              <%= image_tag "plus.png" %>
+    <div class="cart-items">
+      <% @ordered_drugs.each do |ordered_drug| %>
+        <div class="cart-card">
+          <% if ordered_drug.drug.pic.attached?%>
+            <%=cl_image_tag ordered_drug.drug.pic.key %>
+          <%else%>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <%end%>
+          <div class="cart-card-infos">
+            <h2><%=ordered_drug.drug.name.downcase.capitalize%></h2>
+            <div class=cart-card-bottom>
+              <%= link_to minus_ordered_drug_path(ordered_drug), data: {action: "click->cart#updateCart", drug_quantity: "#cart-quantity-#{ordered_drug.id}"} do %>
+                <%= image_tag "moins.png" %>
+              <% end %>
+              <p id="cart-quantity-<%= ordered_drug.id %>"><%= ordered_drug.quantity %></p>
+              <%= link_to plus_ordered_drug_path(ordered_drug), data: {action: "click->cart#updateCart", drug_quantity: "#cart-quantity-#{ordered_drug.id}"} do %>
+                <%= image_tag "plus.png" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="cart-card-icons">
+            <%= link_to ordered_drug_path(ordered_drug), method: :delete do %>
+              <%= image_tag "trash.png" %>
             <% end %>
           </div>
         </div>
-        <div class="cart-card-icons">
-          <%= link_to ordered_drug_path(ordered_drug), method: :delete do %>
-            <%= image_tag "trash.png" %>
-          <% end %>
-        </div>
-      </div>
+      <% end %>
+    </div>
 
-    <% end %>
     <%= link_to pending_status_path(@order) do %>
       <button class="btn-checkout">Validate shopping cart</button>
     <% end %>

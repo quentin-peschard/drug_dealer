@@ -45,24 +45,26 @@
       <% end %>
     <% end %>
   </div>
-  <% @ordered_drugs.each do |ordered_drug| %>
-    <div class="cart-card">
-      <% if ordered_drug.drug.pic.attached?%>
-        <%=cl_image_tag ordered_drug.drug.pic.key%>
-      <%else%>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <%end%>
-      <div class="cart-card-infos">
-        <h2><%=ordered_drug.drug.name.downcase.capitalize%></h2>
-        <div class=cart-card-bottom>
-          <%= simple_form_for ordered_drug do |f| %>
-            <%= f.input :price, placeholder: '$0.99', label: false, as: :float %>
-            <%= f.button :submit, value: '' %>
-          <% end %>
+  <div class="cart-items">
+    <% @ordered_drugs.each do |ordered_drug| %>
+      <div class="cart-card">
+        <% if ordered_drug.drug.pic.attached?%>
+          <%=cl_image_tag ordered_drug.drug.pic.key%>
+        <%else%>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%end%>
+        <div class="cart-card-infos">
+          <h2><%=ordered_drug.drug.name.downcase.capitalize%></h2>
+          <div class=cart-card-bottom>
+            <%= simple_form_for ordered_drug do |f| %>
+              <%= f.input :price, placeholder: '$0.99', label: false, as: :float %>
+              <%= f.button :submit, value: '' %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 
   <%= link_to ready_status_path(@order) do %>
     <button class="btn-checkout">Send invoice to customer</button>
