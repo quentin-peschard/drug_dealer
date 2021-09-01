@@ -1,25 +1,33 @@
-.pharmacy-view h1 {
-  font-weight: bold;
-  background-color: #00243D;
-  z-index: 1;
-}
-
 .pharmacy-view #map {
   width: 100vw;
   height: 100vh;
   z-index: 1;
   position: relative;
 }
+
+.swiper-wrapper {
+  margin: 0 20px;
+  width: 70vw;
+}
+
 .swiper {
   z-index: 2;
   width: 90vw;
-  height: 150px;
+  height: 140px;
   position: absolute;
   bottom: 90px;
   .swiper-slide {
     background-color: white;
     padding: 20px;
-    width: 80vw;
+    a h2 {
+      color: rgb(38,88,83);
+      font-weight: bold;
+      font-size: 25px;
+    }
+    a p {
+      color: rgb(38,88,83);
+      font-size: 15px;
+    }
   }
 }
 
@@ -30,7 +38,7 @@
   background-size: cover;
   cursor: pointer;
   &.active {
-    filter: hue-rotate(300deg);
+    filter: hue-rotate(-170deg);
   }
 }
 
