@@ -9,6 +9,11 @@ class DrugsController < ApplicationController
     if params.dig(:query).present?
       @drugs = @drugs.search_by_name(params[:query])
     end
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: 'list.html', locals: { drugs: @drugs } }
+    end
   end
 
   private
