@@ -6,7 +6,6 @@ function addDrug() {
     const popUp = cardContainer.querySelector(".fixed-element");
 
     card.addEventListener("click", function(e) {
-      console.log(e)
       overLay.classList.remove("hidden");
       popUp.classList.remove('hidden')
     })
