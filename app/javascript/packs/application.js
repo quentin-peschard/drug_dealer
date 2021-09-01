@@ -18,6 +18,7 @@ import { initAutocomplete } from '../plugins/places';
 import { addForm } from '../plugins/addpriceform';
 import { initSwiper } from '../plugins/init_swiper';
 import { addDrug } from '../plugins/ordereddrug';
+import { exitThing } from "../controllers/exit_thing";
 
 
 // Internal imports, e.g:
@@ -39,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
     });
   });
   addDrug();
+  exitThing();
 });
 
 
