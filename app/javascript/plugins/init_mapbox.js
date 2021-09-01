@@ -1,4 +1,5 @@
 import mapboxgl from '!mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -28,15 +29,11 @@ const addMarkersToMap = (map, markers) => {
       });
 
       event.currentTarget.classList.add('active');
+
       if (swiper) {
-
-        // document.querySelector('.swiper').addEventListener('slideChange', () => {
-        //   console.log('change')
-        // })
-
         const slider = document.getElementById(`pharmacy_${event.currentTarget.id}`)
         const slideIndex = parseInt(slider.dataset.swiperSlideIndex) + 1;
-        swiper.slideTo(slideIndex, 400)
+        swiper.slideTo(slideIndex, 400, false)
       }
     });
   });
