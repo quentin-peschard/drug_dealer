@@ -15,7 +15,7 @@
     <%= link_to orders_path, class: "footer-btn" do %>
       <i class="fas fa-tachometer-alt <%= 'btn-active' if current_page?(orders_path) %>"></i>
     <% end %>
-    <p class="letter">board</p>
+    <p class="letter">dashboard</p>
   </div>
   <div class="glow <%= 'active' if @lastorder && current_page?(order_path(@lastorder)) %>">
     <% if @lastorder %>
@@ -36,6 +36,7 @@
         <%= link_to root_path, class: "footer-btn" do %>
           <i class="fas fa-shopping-cart <%= 'btn-active' if @lastorder && current_page?(order_path(@lastorder)) %>"></i>
         <% end %>
+        <p class="letter">cart</p>
     <% end %>
   </div>
   <div class="glow <%= 'active' if current_page?(user_session_path) %>">

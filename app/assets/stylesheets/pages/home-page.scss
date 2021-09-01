@@ -14,14 +14,14 @@
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 35px;
     color: white;
   }
 
   h3 {
     color: white;
     line-height: 1.6;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 900;
   }
   h3 > strong {
@@ -51,6 +51,7 @@
   }
   a.button-up {
     padding: 15px;
+    color: white;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -67,6 +68,7 @@
   .sigle {
     background-color: #0a617e;
     padding-bottom: 20px;
+    height: 100vh;
   }
 
   .sub-title {
