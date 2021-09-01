@@ -45,3 +45,23 @@
 .pharmacy-view a:hover {
   text-decoration: none;
 }
+
+#map-search-bar {
+  position: absolute;
+  height: fit-content;
+  top: 30px;
+  z-index: 3;
+  .algolia-places {
+    width: 90vw;
+    margin: 0 5vw;
+    #address-input {
+      border-radius: 50px;
+      background-color: white;
+      height: 40px;
+      width: 100%;
+      font-size: 15px;
+      border: 1px solid lightgray;
+      box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.1);
+    }
+  }
+}
