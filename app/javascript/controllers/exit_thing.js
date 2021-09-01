@@ -1,11 +1,14 @@
 function exitThing() {
-  const exitThing = document.querySelector(".exit-thing-div")
-  const fixedThing = document.querySelector(".fixed-element")
+  const drugCardContainers = document.querySelectorAll(".card-container");
   const overLay = document.querySelector(".overlay");
-  exitThing.addEventListener("click", function (e) {
-    fixedThing.classList.add('hidden')
-    overLay.classList.add('hidden');
-     });
+  drugCardContainers.forEach((cardContainer) => {
+    const exitThing = cardContainer.querySelector(".exit-thing-div");
+    const popUp = cardContainer.querySelector(".fixed-element");
+    exitThing.addEventListener("click", function (e) {
+      overLay.classList.add("hidden");
+      popUp.classList.add("hidden");
+    });
+  });
 }
 
 export { exitThing };
