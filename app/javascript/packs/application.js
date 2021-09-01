@@ -17,6 +17,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/places';
 import { addForm } from '../plugins/addpriceform';
 import { initSwiper } from '../plugins/init_swiper';
+import { addDrug } from '../plugins/ordereddrug';
 
 
 // Internal imports, e.g:
@@ -37,6 +38,7 @@ document.addEventListener('turbolinks:load', () => {
         });
     });
   });
+  addDrug();
 });
 
 
