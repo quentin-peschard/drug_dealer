@@ -66,12 +66,28 @@
   padding: 16px;
 }
 
-
-
 .card-product .card-drug-plus {
   position: absolute;
   right: 13px;
   top: 31px;
+}
+
+.btn-add-drug {
+  width: 70%;
+  margin: 25px 0;
+  border-radius: 32px;
+  border: none;
+  padding: 10px;
+  background-color: rgb(4,184,244);
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.add-drugs-div {
+  padding-top: 20px;
+  align-items: center;
+  text-align: center;
 }
 
 
