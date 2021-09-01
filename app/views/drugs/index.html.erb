@@ -4,17 +4,16 @@
       <div class="pharma-header">
         <h2><%= @pharmacy.name%></h2>
         <p><%= @pharmacy.address%></p>
+        <%= form_tag drugs_path, method: :get, class: "drug-index-search" do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control searchadrug",
+            placeholder: "Enter a drug's name"
+          %>
+          <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
+          <%= submit_tag "☌", class: "drug-search-bard-button" %>
+        <% end %>
       </div>
-      <%= form_tag drugs_path, method: :get, class: "drug-index-search" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control searchadrug",
-          placeholder: "Enter a drug's name"
-        %>
-        <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
-        <%= submit_tag "☌", class: "drug-search-bard-button" %>
-      <% end %>
-    </div>
       <% @drugs.each do |drug| %>
         <div class="card-container">
           <div class="card-product">
@@ -42,4 +41,3 @@
     </div>
   </div>
 </div>
-
