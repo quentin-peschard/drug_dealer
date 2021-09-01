@@ -1,5 +1,7 @@
 <div class="view">
-  <h1>My Dashboard</h1>
+  <div class="cart-header">
+    <h2>My Dashboard</h2>
+  </div>
   <% pharmacist = current_user.pharmacies %>
   <% pharmacist.each do |pharmacy| %>
     <% pharmacy.orders.each do |order| %>
