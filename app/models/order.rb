@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :pharmacy
   has_many :ordered_drugs, dependent: :destroy
-  # abymize :ordered_drugs, permit: [:drug_id, :user_id, :quantity, :price]
+  abymize :ordered_drugs, permit: [:drug_id, :user_id, :quantity, :price]
 
   has_many :drugs, through: :ordered_drugs
   has_many_attached :prescriptions
