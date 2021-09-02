@@ -4,10 +4,9 @@
     <p><%= link_to "< Continue shopping", drugs_path, class:"button-pharma-index"%></p>
   </div>
   <div class="pharmacy-show-top">
-    <div class="main">
-      <%= simple_form_for(@order) do |f|%>
+    <div class="main" data-controller="prescription" >
+      <%= simple_form_for(@order, data: { action: "change->prescription#choose"}) do |f|%>
         <%= f.input :prescriptions, as: :file, input_html: { multiple: true, class:'d-none'}, label: "Add my prescription" %>
-        <%= f.submit "Go", class:'btn-prescription' %>
       <% end %>
       <% if @order.prescriptions.attached? %>
         <% @order.prescriptions.each do |prescription| %>
