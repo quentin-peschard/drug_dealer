@@ -1,8 +1,11 @@
 .pharma-header {
   background: #0a617e;
   width: 100vw;
-  margin: -10px -35px 5px -35px;
+  margin: -10px -20px 5px -20px;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 3;
   h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 28px;
@@ -17,25 +20,25 @@
 
 .card-product {
   overflow: hidden;
-  height: 96px;
-  width: 300px;
+  height: 110px;
+  width: 330px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 15px;
 }
 
 .card-product img {
   height: 100%;
-  width: 83px;
+  width: 100px;
   object-fit: contain;
   padding: 8px;
   background: #F3F4F6;
 }
 
 .card-product h2 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -44,17 +47,17 @@
 }
 
 .card-product p {
-  font-size: 10px;
-  line-height: 2.4;
+  font-size: 14px;
+  line-height: 1.9;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 6px;
   color: #215A6C;
   background-color: #E6F5F5;
   border-radius: 30px;
-  width: 52px;
+  width: 100px;
   height: 28px;
-  padding-left: 4px;
+  padding-left: 7px;
   padding-top: 1px;
 }
 
@@ -100,4 +103,3 @@
   align-items: center;
   text-align: center;
 }
-
