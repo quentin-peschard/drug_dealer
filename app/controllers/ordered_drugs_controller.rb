@@ -26,16 +26,17 @@ class OrderedDrugsController < ApplicationController
     @ordered_drug = OrderedDrug.new(drug: Drug.find(params[:drug_id]), order: Order.find(params[:order_id]), user: current_user)
     @pharmacy = Pharmacy.find(Order.find(params[:order_id]).pharmacy.id)
     authorize @ordered_drug
+    @drugs = Drug.all
     if @ordered_drug.save!
       respond_to do |format|
         format.html { redirect_to drugs_path(params: { pharmacy_id: params[:pharmacy_id] }) }
-        format.json { render json: { 
-                                    html: render_to_string(partial: 'drugs/drugs_list.html', locals: { drugs: Drug.all }), 
+        format.json { render json: {
+                                    html: render_to_string(partial: 'drugs/drugs_list.html', locals: { drugs: Drug.all }),
                                     ordered_drugs_count: OrderedDrug.joins(:order).where(orders: { user: current_user, status: 'initialized', pharmacy: @pharmacy }).count
                                     }
                     }
       end
-      
+
     else
       render :new
     end
