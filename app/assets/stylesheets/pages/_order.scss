@@ -158,3 +158,30 @@
 .cart-items {
   min-height: 50vh;
 }
+
+.ready-glow {
+  position: absolute;
+  margin-left: 293px;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #09F604;
+  box-shadow: 0 0 4px 4px #09F604;
+}
+
+.pending-glow {
+  position: absolute;
+  margin-left: 293px;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  box-shadow: 0 0 4px 4px #F2F705;
+  background-color: #F2F705
+}
+
+.complete-order {
+  position: absolute;
+  margin-left: 291px;
+  width: 20px;
+  height: 20px;
+}
