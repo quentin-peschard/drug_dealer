@@ -1,12 +1,15 @@
  .main{
-  padding: 10px;
-  margin: 10px 0;
+  padding: 25px 20px;
+  margin: -15px -20px 10px -20px;
+  width: 100vw;
+  background-color: rgba($color: #000000, $alpha: 0.1);
 }
 
 .main2{
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  padding-top: 10px;
 }
 
 .card-prescription {
@@ -19,6 +22,7 @@
   border-radius: 20px;
   transition: all 150ms ease-in-out;
   object-fit: cover;
+  box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.2);
 }
 
 .edit_order {
@@ -26,13 +30,21 @@
   align-items: center;
 }
 
+.order_prescriptions {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
 .order_prescriptions > label {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  color: white;
+  background-color: grey;
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
   padding: 8px 24px;
   border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
   margin: 0;
 }
@@ -51,6 +63,5 @@
 
 .form-group {
   margin: 0 20px 0 0;
-  background-color: white;
   border-radius: 32px;
 }
