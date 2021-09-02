@@ -1,6 +1,5 @@
 <div class="overlay hidden"></div>
-<div class="container">
-  <div class="view" data-controller="refresh-list">
+  <div class="view" data-controller="refresh-list list">
     <div class="pharma-header">
       <h2><%= @pharmacy.name%></h2>
       <p><%= @pharmacy.address%></p>
@@ -17,6 +16,7 @@
         <%= submit_tag "", class: "drug-search-bard-button" %>
       <% end %>
     </div>
-    <%= render 'drugs/list' %>
-  </div>
+    <div class="drugs-list-container" data-list-target="drugList">
+        <%= render "drugs/drugs_list", drugs: @drugs %>
+    </div>
 </div>
