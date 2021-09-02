@@ -10,10 +10,11 @@ export default class extends Controller {
 
   update() {
     const url = `${this.formTarget.action}?query=${this.searchInputTarget.value}`
+
     fetch(url, { headers: { 'Accept': 'text/plain' } })
       .then(response => response.text())
       .then((data) => {
-        this.listTarget.outerHTML = data;
+        this.listTarget.innerHTML = data;
         addDrug();
         exitThing();
       })

@@ -16,7 +16,8 @@
         <%= submit_tag "", class: "drug-search-bard-button" %>
       <% end %>
     </div>
-    <div class="drugs-list-container" data-list-target="drugList">
-        <%= render "drugs/drugs_list", drugs: @drugs %>
+    <div class="drugs-list-container" data-refresh-list-target="list" data-list-target="drugList">
+      <%= render "drugs/drugs_list", drugs: @drugs %>
     </div>
+  </div>
 </div>
