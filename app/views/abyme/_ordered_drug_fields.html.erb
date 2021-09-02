@@ -6,4 +6,4 @@
 <%= f.hidden_field :user_id, value: current_user.id %>
 
 <%= f.hidden_field :_destroy %>
-<%= remove_associated_record content: "Remove ordered_drug" %>
+<%= remove_associated_record content: "Remove ordered_drug", tag: :a, html:{class:"btn btn-primary my-3"}  %>
