@@ -12,7 +12,7 @@ class DrugsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.text { render partial: 'list.html', locals: { drugs: @drugs } }
+      format.text { render partial: 'drugs_list.html' }
     end
   end
 
