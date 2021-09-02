@@ -5,9 +5,9 @@
     <% end %>
     <p class="letter">home</p>
   </div>
-  <div class="glow <%= 'active' if current_page?(pharmacies_path) %>">
+  <div class="glow <%= 'active' if current_page?(pharmacies_path) || current_page?(drugs_path)  %>">
     <%= link_to pharmacies_path, class: "footer-btn" do %>
-      <i class="far fa-map <%= 'btn-active' if current_page?(pharmacies_path) %>"></i>
+      <i class="far fa-map <%= 'btn-active' if current_page?(pharmacies_path) || current_page?(drugs_path) %>"></i>
     <% end %>
     <p class="letter">map</p>
   </div>
