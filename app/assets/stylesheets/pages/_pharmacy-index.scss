@@ -12,14 +12,14 @@
   position: absolute;
   bottom: 90px;
   .swiper-slide {
-    padding: 10px;
+    padding: 15px;
     a h2 {
-      color: rgb(38,88,83);
+      color: #2c2b2b;
       font-weight: bold;
-      font-size: 25px;
+      font-size: 23px;
     }
     a p {
-      color: rgb(38,88,83);
+      color:#2c2b2b;
       font-size: 15px;
     }
   }
@@ -33,17 +33,24 @@
   background-color: white;
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 0 15px rgba($color: #000000, $alpha: 0.15);
+
 }
 
 .marker {
   background-image: asset-url('marker.png');
   width: 27px;
-  height: 41px;
-  background-size: cover;
+  height: 32px;
+  opacity: 0.9;
+  background-size: contain;
   cursor: pointer;
+  transition-duration: 0.2s;
   &.active {
-    filter: hue-rotate(-170deg);
+    width: 43px;
+    height: 52px;
+    opacity: 1;
   }
 }
 
