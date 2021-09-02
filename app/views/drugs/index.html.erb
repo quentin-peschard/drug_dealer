@@ -1,22 +1,22 @@
 <div class="overlay hidden"></div>
-  <div class="container">
-    <div class="view" data-controller="list">
-      <div class="pharma-header">
-        <h2><%= @pharmacy.name%></h2>
-        <p><%= @pharmacy.address%></p>
-        <%= form_tag drugs_path, method: :get, class: "drug-index-search" do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control searchadrug",
-            placeholder: "Search a drug"
-          %>
-          <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
-          <%= submit_tag "", class: "drug-search-bard-button" %>
-        <% end %>
-      </div>
-      <div class="drugs-list-container" data-list-target="drugList">
-        <%= render "drugs/drugs_list", drugs: @drugs %>
-      </div>
+  <div class="view" data-controller="refresh-list list">
+    <div class="pharma-header">
+      <h2><%= @pharmacy.name%></h2>
+      <p><%= @pharmacy.address%></p>
+      <%= form_tag drugs_path, method: :get, class: "drug-index-search", data: { refresh_list_target: 'form' } do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control searchadrug",
+          placeholder: "Search a drug",
+          data: {
+            refresh_list_target: 'searchInput',
+            action: "keyup->refresh-list#update"
+          } %>
+        <%= hidden_field_tag :pharmacy_id, @pharmacy.id.to_s %>
+        <%= submit_tag "", class: "drug-search-bard-button" %>
+      <% end %>
     </div>
-  </div>
+    <div class="drugs-list-container" data-list-target="drugList">
+        <%= render "drugs/drugs_list", drugs: @drugs %>
+    </div>
 </div>
