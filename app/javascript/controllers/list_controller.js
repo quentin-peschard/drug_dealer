@@ -23,6 +23,7 @@ export default class extends Controller {
     .then((data) => {
         this.drugListTarget.innerHTML = data.html;
         document.querySelector('.overlay').classList.add("hidden");
+        document.querySelector('.action-bar').insertAdjacentHTML('beforeend', `<div class='total'>${data.ordered_drugs_count}</div>`)
         exitThing();
         addDrug();
     })
