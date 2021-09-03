@@ -4,6 +4,9 @@
   background: white;
   display: flex;
   align-items: center;
+  &:not(:last-child) {
+    border-bottom: 1px solid #e3e3e3;
+  }
 }
 
 .cart-card img {
@@ -20,9 +23,10 @@
 }
 
 .cart-card p {
-  font-size: 15px;
+  font-size: 22px;
   font-weight: bold;
-  margin-top: 17px;
+  margin-top: 4px;
+  margin-bottom: 0;
 }
 
 .sign-out-btn {
@@ -107,8 +111,8 @@
 }
 
 .btn-checkout {
-  width: 100%;
-  margin: 25px 0;
+  // width: 100%;
+  // margin: 25px 0;
   border-radius: 32px;
   border: none;
   padding: 10px;
@@ -116,6 +120,12 @@
   color: white;
   font-weight: 400;
   font-size: 18px;
+
+  position: fixed;
+  bottom: 75px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #ordered_drug_price {
@@ -154,7 +164,11 @@
 }
 
 .cart-items {
-  min-height: 50vh;
+  overflow-y: scroll;
+  height: 59vh;
+  &.client-cart {
+    height: 44vh;
+  }
 }
 
 .ready-glow {
