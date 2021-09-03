@@ -15,7 +15,7 @@
             <div class="exit-thing-div"><i class="fas fa-times exit-thing"></i></div>
             <div class="add-drugs-div">
             <h2><%= drug.formated_name %></h2>
-            <p><%= "+#{drug.age} years" %></p>
+            <p><%= "Safe for +#{drug.age} yrs old" %></p>
             <% unless current_user.orders.last.drugs.include?(drug) %>
                 <%= link_to order_ordered_drugs_path(current_user.orders.last, params: { drug_id: drug.id }), method: :post, data: { action: "click->list#addToOrder"} do %>
                 <button class="btn-add-drug">Add to Order</button>
