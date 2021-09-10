@@ -1,4 +1,6 @@
 class PharmaciesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def index
     @lastorder = Order.where(user: current_user).last
     @pharmacies = policy_scope(Pharmacy).order(created_at: :desc)
